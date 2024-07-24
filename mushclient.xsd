@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="mcBoolean">
+    <xs:union memberTypes="xs:boolean">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="y"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="n"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:element name="muclient">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="include"/>
+        <xs:choice>
+          <xs:element ref="plugin"/>
+          <xs:element ref="world"/>
+          <xs:element ref="triggers"/>
+          <xs:element ref="aliases"/>
+          <xs:element ref="timers"/>
+          <xs:element ref="macros"/>
+          <xs:element ref="variables"/>
+          <xs:element ref="colours"/>
+          <xs:element ref="keypad"/>
+          <xs:element ref="printing"/>
+        </xs:choice>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="world">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="connect_text"/>
+        <xs:element minOccurs="0" ref="filter_aliases"/>
+        <xs:element minOccurs="0" ref="filter_timers"/>
+        <xs:element minOccurs="0" ref="filter_triggers"/>
+        <xs:element minOccurs="0" ref="filter_variables"/>
+        <xs:element minOccurs="0" ref="log_file_postamble"/>
+        <xs:element minOccurs="0" ref="log_file_preamble"/>
+        <xs:element minOccurs="0" ref="paste_postamble"/>
+        <xs:element minOccurs="0" ref="paste_preamble"/>
+        <xs:element minOccurs="0" ref="send_to_world_file_postamble"/>
+        <xs:element minOccurs="0" ref="send_to_world_file_preamble"/>
+        <xs:element minOccurs="0" ref="tab_completion_defaults"/>
+        <xs:element minOccurs="0" ref="notes"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="accept_chat_connections" type="mcBoolean"/>
+      <xs:attribute name="alternative_inverse" type="mcBoolean"/>
+      <xs:attribute name="alt_arrow_recalls_partial" type="mcBoolean"/>
+      <xs:attribute name="always_record_command_history" type="mcBoolean"/>
+      <xs:attribute name="arrows_change_history" type="mcBoolean"/>
+      <xs:attribute name="arrow_keys_wrap" type="mcBoolean"/>
+      <xs:attribute name="arrow_recalls_partial" type="mcBoolean"/>
+      <xs:attribute name="autosay_exclude_macros" type="mcBoolean"/>
+      <xs:attribute name="autosay_exclude_non_alpha" type="mcBoolean"/>
+      <xs:attribute name="auto_allow_files" type="mcBoolean"/>
+      <xs:attribute name="auto_allow_snooping" type="mcBoolean"/>
+      <xs:attribute name="auto_copy_to_clipboard_in_html" type="mcBoolean"/>
+      <xs:attribute name="auto_pause" type="mcBoolean"/>
+      <xs:attribute name="keep_pause_at_bottom" type="mcBoolean"/>
+      <xs:attribute name="auto_repeat" type="mcBoolean"/>
+      <xs:attribute name="auto_resize_command_window" type="mcBoolean"/>
+      <xs:attribute name="auto_resize_minimum_lines" type="xs:unsignedInt"/>
+      <xs:attribute name="auto_resize_maximum_lines" type="xs:unsignedInt"/>
+      <xs:attribute name="auto_wrap_window_width" type="mcBoolean"/>
+      <xs:attribute name="carriage_return_clears_line" type="mcBoolean"/>
+      <xs:attribute name="chat_foreground_colour" type="xs:normalizedString"/>
+      <xs:attribute name="chat_background_colour" type="xs:normalizedString"/>
+      <xs:attribute name="chat_max_lines_per_message" type="xs:unsignedLong"/>
+      <xs:attribute name="chat_max_bytes_per_message" type="xs:unsignedLong"/>
+      <xs:attribute name="chat_port" type="xs:unsignedShort"/>
+      <xs:attribute name="chat_sumchecks_to_sender" type="mcBoolean"/>
+      <xs:attribute name="confirm_before_replacing_typing" type="mcBoolean"/>
+      <xs:attribute name="confirm_on_paste" type="mcBoolean"/>
+      <xs:attribute name="confirm_on_send" type="mcBoolean"/>
+      <xs:attribute name="connect_method" type="xs:unsignedByte"/>
+      <xs:attribute name="copy_selection_to_clipboard" type="mcBoolean"/>
+      <xs:attribute name="convert_ga_to_newline" type="mcBoolean"/>
+      <xs:attribute name="ctrl_n_goes_to_next_command" type="mcBoolean"/>
+      <xs:attribute name="ctrl_p_goes_to_previous_command" type="mcBoolean"/>
+      <xs:attribute name="ctrl_z_goes_to_end_of_buffer" type="mcBoolean"/>
+      <xs:attribute name="ctrl_backspace_deletes_last_word" type="mcBoolean"/>
+      <xs:attribute name="custom_16_is_default_colour" type="mcBoolean"/>
+      <xs:attribute name="default_trigger_send_to" type="xs:unsignedByte"/>
+      <xs:attribute name="default_trigger_sequence" type="xs:unsignedLong"/>
+      <xs:attribute name="default_trigger_regexp" type="mcBoolean"/>
+      <xs:attribute name="default_trigger_expand_variables" type="mcBoolean"/>
+      <xs:attribute name="default_trigger_keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="default_trigger_ignore_case" type="mcBoolean"/>
+      <xs:attribute name="default_alias_send_to" type="xs:unsignedByte"/>
+      <xs:attribute name="default_alias_sequence" type="xs:unsignedLong"/>
+      <xs:attribute name="default_alias_regexp" type="mcBoolean"/>
+      <xs:attribute name="default_alias_expand_variables" type="mcBoolean"/>
+      <xs:attribute name="default_alias_keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="default_alias_ignore_case" type="mcBoolean"/>
+      <xs:attribute name="default_timer_send_to" type="xs:unsignedByte"/>
+      <xs:attribute name="detect_pueblo" type="mcBoolean"/>
+      <xs:attribute name="do_not_add_macros_to_command_history" type="mcBoolean"/>
+      <xs:attribute name="do_not_show_outstanding_lines" type="mcBoolean"/>
+      <xs:attribute name="do_not_translate_iac_to_iac_iac" type="mcBoolean"/>
+      <xs:attribute name="disable_compression" type="mcBoolean"/>
+      <xs:attribute name="display_my_input" type="mcBoolean"/>
+      <xs:attribute name="double_click_inserts" type="mcBoolean"/>
+      <xs:attribute name="double_click_sends" type="mcBoolean"/>
+      <xs:attribute name="echo_colour" type="xs:unsignedByte"/>
+      <xs:attribute name="echo_hyperlink_in_output_window" type="mcBoolean"/>
+      <xs:attribute name="edit_script_with_notepad" type="mcBoolean"/>
+      <xs:attribute name="enable_aliases" type="mcBoolean"/>
+      <xs:attribute name="enable_auto_say" type="mcBoolean"/>
+      <xs:attribute name="enable_beeps" type="mcBoolean"/>
+      <xs:attribute name="enable_command_stack" type="mcBoolean"/>
+      <xs:attribute name="enable_scripts" type="mcBoolean"/>
+      <xs:attribute name="enable_spam_prevention" type="mcBoolean"/>
+      <xs:attribute name="enable_speed_walk" type="mcBoolean"/>
+      <xs:attribute name="enable_timers" type="mcBoolean"/>
+      <xs:attribute name="enable_triggers" type="mcBoolean"/>
+      <xs:attribute name="enable_trigger_sounds" type="mcBoolean"/>
+      <xs:attribute name="escape_deletes_input" type="mcBoolean"/>
+      <xs:attribute name="fade_output_buffer_after_seconds" type="xs:unsignedByte"/>
+      <xs:attribute name="fade_output_opacity_percent" type="xs:unsignedByte"/>
+      <xs:attribute name="fade_output_seconds" type="xs:unsignedByte"/>
+      <xs:attribute name="flash_taskbar_icon" type="mcBoolean"/>
+      <xs:attribute name="history_lines" type="xs:unsignedLong"/>
+      <xs:attribute name="hyperlink_adds_to_command_history" type="mcBoolean"/>
+      <xs:attribute name="hyperlink_colour" type="xs:token"/>
+      <xs:attribute name="ignore_chat_colours" type="mcBoolean"/>
+      <xs:attribute name="ignore_mxp_colour_changes" type="mcBoolean"/>
+      <xs:attribute name="indent_paras" type="mcBoolean"/>
+      <xs:attribute name="input_background_colour" type="xs:token"/>
+      <xs:attribute name="input_font_height" type="xs:unsignedByte"/>
+      <xs:attribute name="input_font_italic" type="mcBoolean"/>
+      <xs:attribute name="input_font_weight" type="xs:unsignedLong"/>
+      <xs:attribute name="input_font_charset" type="xs:unsignedShort"/>
+      <xs:attribute name="input_text_colour" type="xs:token"/>
+      <xs:attribute name="keep_commands_on_same_line" type="mcBoolean"/>
+      <xs:attribute name="keypad_enable" type="mcBoolean"/>
+      <xs:attribute name="line_information" type="mcBoolean"/>
+      <xs:attribute name="line_spacing" type="xs:unsignedByte"/>
+      <xs:attribute name="log_html" type="mcBoolean"/>
+      <xs:attribute name="log_input" type="mcBoolean"/>
+      <xs:attribute name="log_in_colour" type="mcBoolean"/>
+      <xs:attribute name="log_notes" type="mcBoolean"/>
+      <xs:attribute name="log_output" type="mcBoolean"/>
+      <xs:attribute name="log_raw" type="mcBoolean"/>
+      <xs:attribute name="log_script_errors" type="mcBoolean"/>
+      <xs:attribute name="lower_case_tab_completion" type="mcBoolean"/>
+      <xs:attribute name="map_failure_regexp" type="mcBoolean"/>
+      <xs:attribute name="max_output_lines" type="xs:unsignedInt"/>
+      <xs:attribute name="mud_can_change_link_colour" type="mcBoolean"/>
+      <xs:attribute name="mud_can_remove_underline" type="mcBoolean"/>
+      <xs:attribute name="mud_can_change_options" type="mcBoolean"/>
+      <xs:attribute name="mxp_debug_level" type="xs:unsignedByte"/>
+      <xs:attribute name="naws" type="mcBoolean"/>
+      <xs:attribute name="note_text_colour" type="xs:token"/>
+      <xs:attribute name="no_echo_off" type="mcBoolean"/>
+      <xs:attribute name="omit_date_from_save_files" type="mcBoolean"/>
+      <xs:attribute name="output_font_height" type="xs:unsignedByte"/>
+      <xs:attribute name="output_font_weight" type="xs:unsignedLong"/>
+      <xs:attribute name="output_font_charset" type="xs:unsignedShort"/>
+      <xs:attribute name="paste_commented_softcode" type="mcBoolean"/>
+      <xs:attribute name="paste_delay" type="xs:unsignedLong"/>
+      <xs:attribute name="paste_delay_per_lines" type="xs:unsignedLong"/>
+      <xs:attribute name="paste_echo" type="mcBoolean"/>
+      <xs:attribute name="play_sounds_in_background" type="mcBoolean"/>
+      <xs:attribute name="pixel_offset" type="xs:unsignedLong"/>
+      <xs:attribute name="port" type="xs:unsignedShort"/>
+      <xs:attribute name="proxy_port" type="xs:unsignedShort"/>
+      <xs:attribute name="proxy_type" type="xs:unsignedByte"/>
+      <xs:attribute name="re_evaluate_auto_say" type="mcBoolean"/>
+      <xs:attribute name="save_deleted_command" type="mcBoolean"/>
+      <xs:attribute name="save_world_automatically" type="mcBoolean"/>
+      <xs:attribute name="script_reload_option" type="xs:unsignedByte"/>
+      <xs:attribute name="script_errors_to_output_window" type="mcBoolean"/>
+      <xs:attribute name="send_echo" type="mcBoolean"/>
+      <xs:attribute name="send_double_ff_for_hex_ff" type="mcBoolean"/>
+      <xs:attribute name="send_file_commented_softcode" type="mcBoolean"/>
+      <xs:attribute name="send_file_delay" type="xs:unsignedLong"/>
+      <xs:attribute name="send_file_delay_per_lines" type="xs:unsignedLong"/>
+      <xs:attribute name="send_keep_alives" type="mcBoolean"/>
+      <xs:attribute name="send_mxp_afk_response" type="mcBoolean"/>
+      <xs:attribute name="show_bold" type="mcBoolean"/>
+      <xs:attribute name="show_connect_disconnect" type="mcBoolean"/>
+      <xs:attribute name="show_grid_lines_in_list_views" type="mcBoolean"/>
+      <xs:attribute name="show_italic" type="mcBoolean"/>
+      <xs:attribute name="show_underline" type="mcBoolean"/>
+      <xs:attribute name="spam_line_count" type="xs:unsignedLong"/>
+      <xs:attribute name="speed_walk_delay" type="xs:unsignedLong"/>
+      <xs:attribute name="spell_check_on_send" type="mcBoolean"/>
+      <xs:attribute name="start_paused" type="mcBoolean"/>
+      <xs:attribute name="tab_completion_lines" type="xs:unsignedLong"/>
+      <xs:attribute name="tab_completion_space" type="mcBoolean"/>
+      <xs:attribute name="timestamp_input_text_colour" type="xs:token"/>
+      <xs:attribute name="timestamp_notes_text_colour" type="xs:token"/>
+      <xs:attribute name="timestamp_output_text_colour" type="xs:token"/>
+      <xs:attribute name="timestamp_input_back_colour" type="xs:token"/>
+      <xs:attribute name="timestamp_notes_back_colour" type="xs:token"/>
+      <xs:attribute name="timestamp_output_back_colour" type="xs:token"/>
+      <xs:attribute name="tool_tip_visible_time" type="xs:unsignedLong"/>
+      <xs:attribute name="tool_tip_start_time" type="xs:unsignedLong"/>
+      <xs:attribute name="translate_backslash_sequences" type="mcBoolean"/>
+      <xs:attribute name="translate_german" type="mcBoolean"/>
+      <xs:attribute name="treeview_triggers" type="mcBoolean"/>
+      <xs:attribute name="treeview_aliases" type="mcBoolean"/>
+      <xs:attribute name="treeview_timers" type="mcBoolean"/>
+      <xs:attribute name="underline_hyperlinks" type="mcBoolean"/>
+      <xs:attribute name="unpause_on_send" type="mcBoolean"/>
+      <xs:attribute name="use_custom_link_colour" type="mcBoolean"/>
+      <xs:attribute name="use_default_aliases" type="mcBoolean"/>
+      <xs:attribute name="use_default_colours" type="mcBoolean"/>
+      <xs:attribute name="use_default_input_font" type="mcBoolean"/>
+      <xs:attribute name="use_default_macros" type="mcBoolean"/>
+      <xs:attribute name="use_default_output_font" type="mcBoolean"/>
+      <xs:attribute name="use_default_timers" type="mcBoolean"/>
+      <xs:attribute name="use_default_triggers" type="mcBoolean"/>
+      <xs:attribute name="use_mxp" type="mcBoolean"/>
+      <xs:attribute name="utf_8" type="mcBoolean"/>
+      <xs:attribute name="validate_incoming_chat_calls" type="mcBoolean"/>
+      <xs:attribute name="warn_if_scripting_inactive" type="mcBoolean"/>
+      <xs:attribute name="wrap" type="mcBoolean"/>
+      <xs:attribute name="wrap_input" type="mcBoolean"/>
+      <xs:attribute name="wrap_column" type="xs:unsignedLong"/>
+      <xs:attribute name="write_world_name_to_log" type="mcBoolean"/>
+      <xs:attribute name="auto_log_file_name" type="xs:normalizedString"/>
+      <xs:attribute name="auto_say_override_prefix" type="xs:token"/>
+      <xs:attribute name="auto_say_string" type="xs:normalizedString"/>
+      <xs:attribute name="beep_sound" type="xs:normalizedString"/>
+      <xs:attribute name="chat_file_save_directory" type="xs:normalizedString"/>
+      <xs:attribute name="chat_name" type="xs:normalizedString"/>
+      <xs:attribute name="chat_message_prefix" type="xs:normalizedString"/>
+      <xs:attribute name="command_stack_character" type="xs:token"/>
+      <xs:attribute name="editor_window_name" type="xs:normalizedString"/>
+      <xs:attribute name="id" type="xs:normalizedString"/>
+      <xs:attribute name="input_font_name" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_postamble_input" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_postamble_notes" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_postamble_output" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_preamble_input" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_preamble_notes" type="xs:normalizedString"/>
+      <xs:attribute name="log_line_preamble_output" type="xs:normalizedString"/>
+      <xs:attribute name="mapping_failure" type="xs:normalizedString"/>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="new_activity_sound" type="xs:normalizedString"/>
+      <xs:attribute name="on_mxp_close_tag" type="xs:token"/>
+      <xs:attribute name="on_mxp_error" type="xs:token"/>
+      <xs:attribute name="on_mxp_open_tag" type="xs:token"/>
+      <xs:attribute name="on_mxp_set_variable" type="xs:token"/>
+      <xs:attribute name="on_mxp_start" type="xs:token"/>
+      <xs:attribute name="on_mxp_stop" type="xs:token"/>
+      <xs:attribute name="on_world_close" type="xs:token"/>
+      <xs:attribute name="on_world_save" type="xs:token"/>
+      <xs:attribute name="on_world_connect" type="xs:token"/>
+      <xs:attribute name="on_world_disconnect" type="xs:token"/>
+      <xs:attribute name="on_world_get_focus" type="xs:token"/>
+      <xs:attribute name="on_world_lose_focus" type="xs:token"/>
+      <xs:attribute name="on_world_open" type="xs:token"/>
+      <xs:attribute name="output_font_name" type="xs:normalizedString"/>
+      <xs:attribute name="password" type="xs:base64Binary"/>
+      <xs:attribute name="paste_line_postamble" type="xs:normalizedString"/>
+      <xs:attribute name="paste_line_preamble" type="xs:normalizedString"/>
+      <xs:attribute name="player" type="xs:normalizedString"/>
+      <xs:attribute name="proxy_server" type="xs:normalizedString"/>
+      <xs:attribute name="proxy_username" type="xs:normalizedString"/>
+      <xs:attribute name="proxy_password" type="xs:base64Binary"/>
+      <xs:attribute name="recall_line_preamble" type="xs:normalizedString"/>
+      <xs:attribute name="script_editor" type="xs:normalizedString"/>
+      <xs:attribute name="script_editor_argument" type="xs:normalizedString"/>
+      <xs:attribute name="script_filename" type="xs:normalizedString"/>
+      <xs:attribute name="script_language" type="xs:normalizedString"/>
+      <xs:attribute name="script_prefix" type="xs:normalizedString"/>
+      <xs:attribute name="send_to_world_line_postamble" type="xs:normalizedString"/>
+      <xs:attribute name="send_to_world_line_preamble" type="xs:normalizedString"/>
+      <xs:attribute name="site" type="xs:normalizedString"/>
+      <xs:attribute name="spam_message" type="xs:normalizedString"/>
+      <xs:attribute name="speed_walk_filler" type="xs:normalizedString"/>
+      <xs:attribute name="speed_walk_prefix" type="xs:normalizedString"/>
+      <xs:attribute name="terminal_identification" type="xs:normalizedString"/>
+      <xs:attribute name="timestamp_input" type="xs:normalizedString"/>
+      <xs:attribute name="timestamp_notes" type="xs:normalizedString"/>
+      <xs:attribute name="timestamp_output" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="connect_text" type="xs:string"/>
+  <xs:element name="filter_aliases" type="xs:string"/>
+  <xs:element name="filter_timers" type="xs:string"/>
+  <xs:element name="filter_triggers" type="xs:string"/>
+  <xs:element name="filter_variables" type="xs:string"/>
+  <xs:element name="log_file_postamble" type="xs:string"/>
+  <xs:element name="log_file_preamble" type="xs:string"/>
+  <xs:element name="paste_postamble" type="xs:string"/>
+  <xs:element name="paste_preamble" type="xs:string"/>
+  <xs:element name="send_to_world_file_postamble" type="xs:string"/>
+  <xs:element name="send_to_world_file_preamble" type="xs:string"/>
+  <xs:element name="tab_completion_defaults" type="xs:string"/>
+  <xs:element name="notes" type="xs:string"/>
+  <xs:element name="triggers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="trigger"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="trigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="send"/>
+      </xs:sequence>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="clipboard_arg" type="xs:normalizedString"/>
+      <xs:attribute name="custom_colour" type="xs:unsignedShort"/>
+      <xs:attribute name="enabled" type="mcBoolean"/>
+      <xs:attribute name="expand_variables" type="mcBoolean"/>
+      <xs:attribute name="group" type="xs:normalizedString"/>
+      <xs:attribute name="variable" type="xs:token"/>
+      <xs:attribute name="pane" type="xs:token"/>
+      <xs:attribute name="ignore_case" type="mcBoolean"/>
+      <xs:attribute name="keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="lines_to_match" type="xs:unsignedShort"/>
+      <xs:attribute name="colour_change_type" type="xs:unsignedShort"/>
+      <xs:attribute name="match" type="xs:string"/>
+      <xs:attribute name="multi_line" type="mcBoolean"/>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="omit_from_log" type="mcBoolean"/>
+      <xs:attribute name="omit_from_output" type="mcBoolean"/>
+      <xs:attribute name="regexp" type="mcBoolean"/>
+      <xs:attribute name="repeat" type="mcBoolean"/>
+      <xs:attribute name="script" type="xs:string"/>
+      <xs:attribute name="send_to" type="xs:unsignedShort"/>
+      <xs:attribute name="sequence" type="xs:unsignedShort"/>
+      <xs:attribute name="sound" type="xs:normalizedString"/>
+      <xs:attribute name="sound_if_inactive" type="mcBoolean"/>
+      <xs:attribute name="lowercase_wildcard" type="mcBoolean"/>
+      <xs:attribute name="temporary" type="mcBoolean"/>
+      <xs:attribute name="user" type="xs:long"/>
+      <xs:attribute name="one_shot" type="mcBoolean"/>
+      <xs:attribute name="make_bold" type="xs:unsignedShort"/>
+      <xs:attribute name="make_italic" type="xs:unsignedShort"/>
+      <xs:attribute name="make_underline" type="xs:unsignedShort"/>
+      <xs:attribute name="text_colour" type="xs:unsignedShort"/>
+      <xs:attribute name="back_colour" type="xs:unsignedShort"/>
+      <xs:attribute name="bold" type="mcBoolean"/>
+      <xs:attribute name="match_back_colour" type="mcBoolean"/>
+      <xs:attribute name="match_bold" type="mcBoolean"/>
+      <xs:attribute name="match_inverse" type="mcBoolean"/>
+      <xs:attribute name="match_italic" type="mcBoolean"/>
+      <xs:attribute name="match_text_colour" type="mcBoolean"/>
+      <xs:attribute name="match_underline" type="mcBoolean"/>
+      <xs:attribute name="inverse" type="mcBoolean"/>
+      <xs:attribute name="italic" type="mcBoolean"/>
+      <xs:attribute name="other_text_colour" type="xs:normalizedString"/>
+      <xs:attribute name="other_back_colour" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aliases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="alias"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="alias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="send"/>
+      </xs:sequence>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="script" type="xs:string"/>
+      <xs:attribute name="match" use="required" type="xs:string"/>
+      <xs:attribute name="enabled" type="mcBoolean"/>
+      <xs:attribute name="expand_variables" type="mcBoolean"/>
+      <xs:attribute name="group" type="xs:normalizedString"/>
+      <xs:attribute name="variable" type="xs:token"/>
+      <xs:attribute name="omit_from_log" type="mcBoolean"/>
+      <xs:attribute name="regexp" type="mcBoolean"/>
+      <xs:attribute name="send_to" type="xs:unsignedShort"/>
+      <xs:attribute name="omit_from_command_history" type="mcBoolean"/>
+      <xs:attribute name="omit_from_output" type="mcBoolean"/>
+      <xs:attribute name="menu" type="mcBoolean"/>
+      <xs:attribute name="ignore_case" type="mcBoolean"/>
+      <xs:attribute name="keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="sequence" type="xs:unsignedShort"/>
+      <xs:attribute name="echo_alias" type="mcBoolean"/>
+      <xs:attribute name="user" type="xs:long"/>
+      <xs:attribute name="temporary" type="mcBoolean"/>
+      <xs:attribute name="one_shot" type="mcBoolean"/>
+      <xs:attribute name="speed_walk" type="mcBoolean"/>
+      <xs:attribute name="set_variable" type="mcBoolean"/>
+      <xs:attribute name="queue" type="mcBoolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="timer"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="send"/>
+      </xs:sequence>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="script" type="xs:string"/>
+      <xs:attribute name="enabled" type="mcBoolean"/>
+      <xs:attribute name="at_time" type="mcBoolean"/>
+      <xs:attribute name="group" type="xs:normalizedString"/>
+      <xs:attribute name="variable" type="xs:token"/>
+      <xs:attribute name="one_shot" type="mcBoolean"/>
+      <xs:attribute name="active_closed" type="mcBoolean"/>
+      <xs:attribute name="send_to" type="xs:unsignedShort"/>
+      <xs:attribute name="omit_from_output" type="mcBoolean"/>
+      <xs:attribute name="omit_from_log" type="mcBoolean"/>
+      <xs:attribute name="hour" type="xs:unsignedByte"/>
+      <xs:attribute name="minute" type="xs:unsignedByte"/>
+      <xs:attribute name="second" type="xs:double"/>
+      <xs:attribute name="offset_hour" type="xs:unsignedByte"/>
+      <xs:attribute name="offset_minute" type="xs:unsignedByte"/>
+      <xs:attribute name="offset_second" type="xs:double"/>
+      <xs:attribute name="user" type="xs:long"/>
+      <xs:attribute name="temporary" type="mcBoolean"/>
+      <xs:attribute name="speed_walk" type="mcBoolean"/>
+      <xs:attribute name="note" type="mcBoolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="macros">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="macro"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="macro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="send"/>
+      </xs:sequence>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="variables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="variable"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="variable">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="defaults" type="mcBoolean"/>
+          <xs:attribute name="name" type="xs:token"/>
+          <xs:attribute name="trim" type="mcBoolean"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="colours">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group minOccurs="0" ref="colours_ansi"/>
+        <xs:element minOccurs="0" ref="custom"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="colours_ansi">
+    <xs:sequence>
+      <xs:element name="ansi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="normal"/>
+            <xs:element minOccurs="0" ref="bold"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="normal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
+          <xs:complexType>
+            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
+            <xs:attribute name="rgb" use="required" type="xs:normalizedString"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
+          <xs:complexType>
+            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
+            <xs:attribute name="rgb" use="required" type="xs:normalizedString"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="custom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
+          <xs:complexType>
+            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
+            <xs:attribute name="name" use="required" type="xs:normalizedString"/>
+            <xs:attribute name="text" use="required" type="xs:normalizedString"/>
+            <xs:attribute name="back" use="required" type="xs:normalizedString"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keypad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="key"/>
+      </xs:sequence>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="send"/>
+      </xs:sequence>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="name" use="required" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="printing">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="printing_ansi"/>
+      <xs:attribute name="world_file_version" type="xs:long"/>
+      <xs:attribute name="muclient_version" type="xs:token"/>
+      <xs:attribute name="date_saved" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="printing_ansi">
+    <xs:sequence>
+      <xs:element name="ansi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="normal">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" ref="style"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="bold">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" ref="style"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="style">
+    <xs:complexType>
+      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="seq" type="xs:long"/>
+      <xs:attribute name="bold" type="mcBoolean"/>
+      <xs:attribute name="italic" type="mcBoolean"/>
+      <xs:attribute name="underline" type="mcBoolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="send" type="xs:string"/>
+  <xs:element name="plugin">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="author" type="xs:normalizedString"/>
+      <xs:attribute name="language" type="xs:normalizedString"/>
+      <xs:attribute name="id" type="xs:normalizedString"/>
+      <xs:attribute name="purpose" type="xs:string"/>
+      <xs:attribute name="date_written" type="xs:dateTime"/>
+      <xs:attribute name="date_modified" type="xs:dateTime"/>
+      <xs:attribute name="sequence" type="xs:unsignedInt"/>
+      <xs:attribute name="save_state" type="mcBoolean"/>
+      <xs:attribute name="requires" type="xs:double"/>
+      <xs:attribute name="version" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="include">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:normalizedString"/>
+      <xs:attribute name="plugin" type="mcBoolean"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

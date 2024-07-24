@@ -1,0 +1,547 @@
+mcBoolean = xsd:boolean | "y" | "n"
+
+muclient = element muclient {
+    (include_* & 
+     (plugin? & world? & triggers? & aliases? & timers? & macros? & variables? & colours? & keypad? & printing?)
+    )
+}
+
+world = element world {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    attribute accept_chat_connections { mcBoolean }?,
+    attribute alternative_inverse { mcBoolean }?,
+    attribute alt_arrow_recalls_partial { mcBoolean }?,
+    attribute always_record_command_history { mcBoolean }?,
+    attribute arrows_change_history { mcBoolean }?,
+    attribute arrow_keys_wrap { mcBoolean }?,
+    attribute arrow_recalls_partial { mcBoolean }?,
+    attribute autosay_exclude_macros { mcBoolean }?,
+    attribute autosay_exclude_non_alpha { mcBoolean }?,
+    attribute auto_allow_files { mcBoolean }?,
+    attribute auto_allow_snooping { mcBoolean }?,
+    attribute auto_copy_to_clipboard_in_html { mcBoolean }?,
+    attribute auto_pause { mcBoolean }?,
+    attribute keep_pause_at_bottom { mcBoolean }?,
+    attribute auto_repeat { mcBoolean }?,
+    attribute auto_resize_command_window { mcBoolean }?,
+    attribute auto_resize_minimum_lines { xsd:unsignedInt }?,
+    attribute auto_resize_maximum_lines { xsd:unsignedInt }?,
+    attribute auto_wrap_window_width { mcBoolean }?,
+    attribute carriage_return_clears_line { mcBoolean }?,
+    attribute chat_foreground_colour { xsd:normalizedString }?,
+    attribute chat_background_colour { xsd:normalizedString }?,
+    attribute chat_max_lines_per_message { xsd:unsignedLong }?,
+    attribute chat_max_bytes_per_message { xsd:unsignedLong }?,
+    attribute chat_port { xsd:unsignedShort }?,
+    attribute chat_sumchecks_to_sender { mcBoolean }?,
+    attribute confirm_before_replacing_typing { mcBoolean }?,
+    attribute confirm_on_paste { mcBoolean }?,
+    attribute confirm_on_send { mcBoolean }?,
+    attribute connect_method { xsd:unsignedByte }?,
+    attribute copy_selection_to_clipboard { mcBoolean }?,
+    attribute convert_ga_to_newline { mcBoolean }?,
+    attribute ctrl_n_goes_to_next_command { mcBoolean }?,
+    attribute ctrl_p_goes_to_previous_command { mcBoolean }?,
+    attribute ctrl_z_goes_to_end_of_buffer { mcBoolean }?,
+    attribute ctrl_backspace_deletes_last_word { mcBoolean }?,
+    attribute custom_16_is_default_colour { mcBoolean }?,
+    attribute default_trigger_send_to { xsd:unsignedByte }?,
+    attribute default_trigger_sequence { xsd:unsignedLong }?,
+    attribute default_trigger_regexp { mcBoolean }?,
+    attribute default_trigger_expand_variables { mcBoolean }?,
+    attribute default_trigger_keep_evaluating { mcBoolean }?,
+    attribute default_trigger_ignore_case { mcBoolean }?,
+    attribute default_alias_send_to { xsd:unsignedByte }?,
+    attribute default_alias_sequence { xsd:unsignedLong }?,
+    attribute default_alias_regexp { mcBoolean }?,
+    attribute default_alias_expand_variables { mcBoolean }?,
+    attribute default_alias_keep_evaluating { mcBoolean }?,
+    attribute default_alias_ignore_case { mcBoolean }?,
+    attribute default_timer_send_to { xsd:unsignedByte }?,
+    attribute detect_pueblo { mcBoolean }?,
+    attribute do_not_add_macros_to_command_history { mcBoolean }?,
+    attribute do_not_show_outstanding_lines { mcBoolean }?,
+    attribute do_not_translate_iac_to_iac_iac { mcBoolean }?,
+    attribute disable_compression { mcBoolean }?,
+    attribute display_my_input { mcBoolean }?,
+    attribute double_click_inserts { mcBoolean }?,
+    attribute double_click_sends { mcBoolean }?,
+    attribute echo_colour { xsd:unsignedByte }?,
+    attribute echo_hyperlink_in_output_window { mcBoolean }?,
+    attribute edit_script_with_notepad { mcBoolean }?,
+    attribute enable_aliases { mcBoolean }?,
+    attribute enable_auto_say { mcBoolean }?,
+    attribute enable_beeps { mcBoolean }?,
+    attribute enable_command_stack { mcBoolean }?,
+    attribute enable_scripts { mcBoolean }?,
+    attribute enable_spam_prevention { mcBoolean }?,
+    attribute enable_speed_walk { mcBoolean }?,
+    attribute enable_timers { mcBoolean }?,
+    attribute enable_triggers { mcBoolean }?,
+    attribute enable_trigger_sounds { mcBoolean }?,
+    attribute escape_deletes_input { mcBoolean }?,
+    attribute fade_output_buffer_after_seconds { xsd:unsignedByte }?,
+    attribute fade_output_opacity_percent { xsd:unsignedByte }?,
+    attribute fade_output_seconds { xsd:unsignedByte }?,
+    attribute flash_taskbar_icon { mcBoolean }?,
+    attribute history_lines { xsd:unsignedLong }?,
+    attribute hyperlink_adds_to_command_history { mcBoolean }?,
+    attribute hyperlink_colour { xsd:token }?,
+    attribute ignore_chat_colours { mcBoolean }?,
+    attribute ignore_mxp_colour_changes { mcBoolean }?,
+    attribute indent_paras { mcBoolean }?,
+    attribute input_background_colour { xsd:token }?,
+    attribute input_font_height { xsd:unsignedByte }?,
+    attribute input_font_italic { mcBoolean }?,
+    attribute input_font_weight { xsd:unsignedLong }?,
+    attribute input_font_charset { xsd:unsignedShort }?,
+    attribute input_text_colour { xsd:token }?,
+    attribute keep_commands_on_same_line { mcBoolean }?,
+    attribute keypad_enable { mcBoolean }?,
+    attribute line_information { mcBoolean }?,
+    attribute line_spacing { xsd:unsignedByte }?,
+    attribute log_html { mcBoolean }?,
+    attribute log_input { mcBoolean }?,
+    attribute log_in_colour { mcBoolean }?,
+    attribute log_notes { mcBoolean }?,
+    attribute log_output { mcBoolean }?,
+    attribute log_raw { mcBoolean }?,
+    attribute log_script_errors { mcBoolean }?,
+    attribute lower_case_tab_completion { mcBoolean }?,
+    attribute map_failure_regexp { mcBoolean }?,
+    attribute max_output_lines { xsd:unsignedInt }?,
+    attribute mud_can_change_link_colour { mcBoolean }?,
+    attribute mud_can_remove_underline { mcBoolean }?,
+    attribute mud_can_change_options { mcBoolean }?,
+    attribute mxp_debug_level { xsd:unsignedByte }?,
+    attribute naws { mcBoolean }?,
+    attribute note_text_colour { xsd:token }?,
+    attribute no_echo_off { mcBoolean }?,
+    attribute omit_date_from_save_files { mcBoolean }?,
+    attribute output_font_height { xsd:unsignedByte }?,
+    attribute output_font_weight { xsd:unsignedLong }?,
+    attribute output_font_charset { xsd:unsignedShort }?,
+    attribute paste_commented_softcode { mcBoolean }?,
+    attribute paste_delay { xsd:unsignedLong }?,
+    attribute paste_delay_per_lines { xsd:unsignedLong }?,
+    attribute paste_echo { mcBoolean }?,
+    attribute play_sounds_in_background { mcBoolean }?,
+    attribute pixel_offset { xsd:unsignedLong }?,
+    attribute port { xsd:unsignedShort }?,
+    attribute proxy_port { xsd:unsignedShort }?,
+    attribute proxy_type { xsd:unsignedByte }?,
+    attribute re_evaluate_auto_say { mcBoolean }?,
+    attribute save_deleted_command { mcBoolean }?,
+    attribute save_world_automatically { mcBoolean }?,
+    attribute script_reload_option { xsd:unsignedByte }?,
+    attribute script_errors_to_output_window { mcBoolean }?,
+    attribute send_echo { mcBoolean }?,
+    attribute send_double_ff_for_hex_ff { mcBoolean }?,
+    attribute send_file_commented_softcode { mcBoolean }?,
+    attribute send_file_delay { xsd:unsignedLong }?,
+    attribute send_file_delay_per_lines { xsd:unsignedLong }?,
+    attribute send_keep_alives { mcBoolean }?,
+    attribute send_mxp_afk_response { mcBoolean }?,
+    attribute show_bold { mcBoolean }?,
+    attribute show_connect_disconnect { mcBoolean }?,
+    attribute show_grid_lines_in_list_views { mcBoolean }?,
+    attribute show_italic { mcBoolean }?,
+    attribute show_underline { mcBoolean }?,
+    attribute spam_line_count { xsd:unsignedLong }?,
+    attribute speed_walk_delay { xsd:unsignedLong }?,
+    attribute spell_check_on_send { mcBoolean }?,
+    attribute start_paused { mcBoolean }?,
+    attribute tab_completion_lines { xsd:unsignedLong }?,
+    attribute tab_completion_space { mcBoolean }?,
+    attribute timestamp_input_text_colour { xsd:token }?,
+    attribute timestamp_notes_text_colour { xsd:token }?,
+    attribute timestamp_output_text_colour { xsd:token }?,
+    attribute timestamp_input_back_colour { xsd:token }?,
+    attribute timestamp_notes_back_colour { xsd:token }?,
+    attribute timestamp_output_back_colour { xsd:token }?,
+    attribute tool_tip_visible_time { xsd:unsignedLong }?,
+    attribute tool_tip_start_time { xsd:unsignedLong }?,
+    attribute translate_backslash_sequences { mcBoolean }?,
+    attribute translate_german { mcBoolean }?,
+    attribute treeview_triggers { mcBoolean }?,
+    attribute treeview_aliases { mcBoolean }?,
+    attribute treeview_timers { mcBoolean }?,
+    attribute underline_hyperlinks { mcBoolean }?,
+    attribute unpause_on_send { mcBoolean }?,
+    attribute use_custom_link_colour { mcBoolean }?,
+    attribute use_default_aliases { mcBoolean }?,
+    attribute use_default_colours { mcBoolean }?,
+    attribute use_default_input_font { mcBoolean }?,
+    attribute use_default_macros { mcBoolean }?,
+    attribute use_default_output_font { mcBoolean }?,
+    attribute use_default_timers { mcBoolean }?,
+    attribute use_default_triggers { mcBoolean }?,
+    attribute use_mxp { mcBoolean }?,
+    attribute utf_8 { mcBoolean }?,
+    attribute validate_incoming_chat_calls { mcBoolean }?,
+    attribute warn_if_scripting_inactive { mcBoolean }?,
+    attribute wrap { mcBoolean }?,
+    attribute wrap_input { mcBoolean }?,
+    attribute wrap_column { xsd:unsignedLong }?,
+    attribute write_world_name_to_log { mcBoolean }?,
+    attribute auto_log_file_name { xsd:normalizedString }?,
+    attribute auto_say_override_prefix { xsd:token }?,
+    attribute auto_say_string { xsd:normalizedString }?,
+    attribute beep_sound { xsd:normalizedString }?,
+    attribute chat_file_save_directory { xsd:normalizedString }?,
+    attribute chat_name { xsd:normalizedString }?,
+    attribute chat_message_prefix { xsd:normalizedString }?,
+    attribute command_stack_character { xsd:token }?,
+    attribute editor_window_name { xsd:normalizedString }?,
+    attribute id { xsd:normalizedString }?,
+    attribute input_font_name { xsd:normalizedString }?,
+    attribute log_line_postamble_input { xsd:normalizedString }?,
+    attribute log_line_postamble_notes { xsd:normalizedString }?,
+    attribute log_line_postamble_output { xsd:normalizedString }?,
+    attribute log_line_preamble_input { xsd:normalizedString }?,
+    attribute log_line_preamble_notes { xsd:normalizedString }?,
+    attribute log_line_preamble_output { xsd:normalizedString }?,
+    attribute mapping_failure { xsd:normalizedString }?,
+    attribute name { xsd:normalizedString }?,
+    attribute new_activity_sound { xsd:normalizedString }?,
+    attribute on_mxp_close_tag { xsd:token }?,
+    attribute on_mxp_error { xsd:token }?,
+    attribute on_mxp_open_tag { xsd:token }?,
+    attribute on_mxp_set_variable { xsd:token }?,
+    attribute on_mxp_start { xsd:token }?,
+    attribute on_mxp_stop { xsd:token }?,
+    attribute on_world_close { xsd:token }?,
+    attribute on_world_save { xsd:token }?,
+    attribute on_world_connect { xsd:token }?,
+    attribute on_world_disconnect { xsd:token }?,
+    attribute on_world_get_focus { xsd:token }?,
+    attribute on_world_lose_focus { xsd:token }?,
+    attribute on_world_open { xsd:token }?,
+    attribute output_font_name { xsd:normalizedString }?,
+    attribute password { xsd:base64Binary }?,
+    attribute paste_line_postamble { xsd:normalizedString }?,
+    attribute paste_line_preamble { xsd:normalizedString }?,
+    attribute player { xsd:normalizedString }?,
+    attribute proxy_server { xsd:normalizedString }?,
+    attribute proxy_username { xsd:normalizedString }?,
+    attribute proxy_password { xsd:base64Binary }?,
+    attribute recall_line_preamble { xsd:normalizedString }?,
+    attribute script_editor { xsd:normalizedString }?,
+    attribute script_editor_argument { xsd:normalizedString }?,
+    attribute script_filename { xsd:normalizedString }?,
+    attribute script_language { xsd:normalizedString }?,
+    attribute script_prefix { xsd:normalizedString }?,
+    attribute send_to_world_line_postamble { xsd:normalizedString }?,
+    attribute send_to_world_line_preamble { xsd:normalizedString }?,
+    attribute site { xsd:normalizedString }?,
+    attribute spam_message { xsd:normalizedString }?,
+    attribute speed_walk_filler { xsd:normalizedString }?,
+    attribute speed_walk_prefix { xsd:normalizedString }?,
+    attribute terminal_identification { xsd:normalizedString }?,
+    attribute timestamp_input { xsd:normalizedString }?,
+    attribute timestamp_notes { xsd:normalizedString }?,
+    attribute timestamp_output { xsd:normalizedString }?,
+    connect_text?,
+    filter_aliases?,
+    filter_timers?,
+    filter_triggers?,
+    filter_variables?,
+    log_file_postamble?,
+    log_file_preamble?,
+    paste_postamble?,
+    paste_preamble?,
+    send_to_world_file_postamble?,
+    send_to_world_file_preamble?,
+    tab_completion_defaults?,
+    notes?
+}
+
+connect_text = element connect_text { xsd:string }
+
+filter_aliases = element filter_aliases { xsd:string }
+
+filter_timers = element filter_timers { xsd:string }
+
+filter_triggers = element filter_triggers { xsd:string }
+
+filter_variables = element filter_variables { xsd:string }
+
+log_file_postamble = element log_file_postamble { xsd:string }
+
+log_file_preamble = element log_file_preamble { xsd:string }
+
+paste_postamble = element paste_postamble { xsd:string }
+
+paste_preamble = element paste_preamble { xsd:string }
+
+send_to_world_file_postamble = element send_to_world_file_postamble { xsd:string }
+
+send_to_world_file_preamble = element send_to_world_file_preamble { xsd:string }
+
+tab_completion_defaults = element tab_completion_defaults { xsd:string }
+
+notes = element notes { xsd:string }
+
+triggers = element triggers {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    trigger*,
+    empty
+}
+
+trigger = element trigger {
+    attribute defaults { mcBoolean }?,
+    attribute clipboard_arg { xsd:normalizedString }?,
+    attribute custom_colour { xsd:unsignedShort }?,
+    attribute enabled { mcBoolean }?,
+    attribute expand_variables { mcBoolean }?,
+    attribute group { xsd:normalizedString }?,
+    attribute variable { xsd:token }?,
+    attribute pane { xsd:token }?,
+    attribute ignore_case { mcBoolean }?,
+    attribute keep_evaluating { mcBoolean }?,
+    attribute lines_to_match { xsd:unsignedShort }?,
+    attribute colour_change_type { xsd:unsignedShort }?,
+    attribute match { xsd:string }?,
+    attribute multi_line { mcBoolean }?,
+    attribute name { xsd:normalizedString }?,
+    attribute omit_from_log { mcBoolean }?,
+    attribute omit_from_output { mcBoolean }?,
+    attribute regexp { mcBoolean }?,
+    attribute repeat { mcBoolean }?,
+    attribute script { xsd:string }?,
+    attribute send_to { xsd:unsignedShort }?,
+    attribute sequence { xsd:unsignedShort }?,
+    attribute sound { xsd:normalizedString }?,
+    attribute sound_if_inactive { mcBoolean }?,
+    attribute lowercase_wildcard { mcBoolean }?,
+    attribute temporary { mcBoolean }?,
+    attribute user { xsd:long }?,
+    attribute one_shot { mcBoolean }?,
+    attribute make_bold { xsd:unsignedShort }?,
+    attribute make_italic { xsd:unsignedShort }?,
+    attribute make_underline { xsd:unsignedShort }?,
+    attribute text_colour { xsd:unsignedShort }?,
+    attribute back_colour { xsd:unsignedShort }?,
+    attribute bold { mcBoolean }?,
+    attribute match_back_colour { mcBoolean }?,
+    attribute match_bold { mcBoolean }?,
+    attribute match_inverse { mcBoolean }?,
+    attribute match_italic { mcBoolean }?,
+    attribute match_text_colour { mcBoolean }?,
+    attribute match_underline { mcBoolean }?,
+    attribute inverse { mcBoolean }?,
+    attribute italic { mcBoolean }?,
+    attribute other_text_colour { xsd:normalizedString }?,
+    attribute other_back_colour { xsd:normalizedString }?,
+    send?
+}
+
+aliases = element aliases {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    alias*,
+    empty
+}
+
+alias = element alias {
+    attribute defaults { mcBoolean }?,
+    attribute name { xsd:normalizedString }?,
+    attribute script { xsd:string }?,
+    attribute match { xsd:string },
+    attribute enabled { mcBoolean }?,
+    attribute expand_variables { mcBoolean }?,
+    attribute group { xsd:normalizedString }?,
+    attribute variable { xsd:token }?,
+    attribute omit_from_log { mcBoolean }?,
+    attribute regexp { mcBoolean }?,
+    attribute send_to { xsd:unsignedShort }?,
+    attribute omit_from_command_history { mcBoolean }?,
+    attribute omit_from_output { mcBoolean }?,
+    attribute menu { mcBoolean }?,
+    attribute ignore_case { mcBoolean }?,
+    attribute keep_evaluating { mcBoolean }?,
+    attribute sequence { xsd:unsignedShort }?,
+    attribute echo_alias { mcBoolean }?,
+    attribute user { xsd:long }?,
+    attribute temporary { mcBoolean }?,
+    attribute one_shot { mcBoolean }?,
+    attribute speed_walk { mcBoolean }?,
+    attribute set_variable { mcBoolean }?,
+    attribute queue { mcBoolean }?,
+    send?
+}
+
+timers = element timers {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    timer*,
+    empty
+}
+
+timer = element timer {
+    attribute defaults { mcBoolean }?,
+    attribute name { xsd:normalizedString }?,
+    attribute script { xsd:string }?,
+    attribute enabled { mcBoolean }?,
+    attribute at_time { mcBoolean }?,
+    attribute group { xsd:normalizedString }?,
+    attribute variable { xsd:token }?,
+    attribute one_shot { mcBoolean }?,
+    attribute active_closed { mcBoolean }?,
+    attribute send_to { xsd:unsignedShort }?,
+    attribute omit_from_output { mcBoolean }?,
+    attribute omit_from_log { mcBoolean }?,
+    attribute hour { xsd:unsignedByte }?,
+    attribute minute { xsd:unsignedByte }?,
+    attribute second { xsd:double }?,
+    attribute offset_hour { xsd:unsignedByte }?,
+    attribute offset_minute { xsd:unsignedByte }?,
+    attribute offset_second { xsd:double }?,
+    attribute user { xsd:long }?,
+    attribute temporary { mcBoolean }?,
+    attribute speed_walk { mcBoolean }?,
+    attribute note { mcBoolean }?,
+    send?
+}
+
+macros = element macros {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    macro*,
+    empty
+}
+
+macro = element macro {
+    attribute defaults { mcBoolean }?,
+    attribute name { xsd:normalizedString }?,
+    attribute type { xsd:normalizedString }?,
+    send?
+}
+
+variables = element variables {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    variable*,
+    empty
+}
+
+variable = element variable {
+    attribute defaults { mcBoolean }?,
+    attribute name { xsd:token }?,
+    attribute trim { mcBoolean }?,
+    xsd:string
+}
+
+colours = element colours {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    colours_ansi?,
+    colours_custom?,
+    empty
+}
+
+colours_ansi = element ansi {
+    colours_ansi_normal?,
+    colours_ansi_bold?,
+    empty
+}
+
+colours_ansi_normal = element normal {
+    element colour {
+        attribute defaults { mcBoolean }?,
+        attribute seq { xsd:unsignedInt },
+        attribute rgb { xsd:normalizedString }
+    }*
+}
+
+colours_ansi_bold = element bold {
+    element colour {
+        attribute defaults { mcBoolean }?,
+        attribute seq { xsd:unsignedInt },
+        attribute rgb { xsd:normalizedString }
+    }*
+}
+
+colours_custom = element custom {
+    element colour {
+        attribute defaults { mcBoolean }?,
+        attribute seq { xsd:unsignedInt },
+        attribute name { xsd:normalizedString },
+        attribute text { xsd:normalizedString },
+        attribute back { xsd:normalizedString }
+    }*
+}
+
+keypad = element keypad {
+    attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    key*,
+    empty
+}
+
+key = element key {
+    attribute defaults { mcBoolean }?,
+    attribute name { xsd:normalizedString },
+    send?
+}
+
+printing = element printing {
+        attribute world_file_version { xsd:long }?,
+    attribute muclient_version { xsd:token }?,
+    attribute date_saved { xsd:date }?,
+    printing_ansi*,
+    empty
+}
+
+printing_ansi = element ansi {
+    element normal {
+        element style {
+            attribute defaults { mcBoolean }?,
+            attribute seq { xsd:long }?,
+            attribute bold { mcBoolean }?,
+            attribute italic { mcBoolean }?,
+            attribute underline { mcBoolean }?
+        }*
+    }?,
+    element bold {
+        element style {
+            attribute defaults { mcBoolean }?,
+            attribute seq { xsd:long }?,
+            attribute bold { mcBoolean }?,
+            attribute italic { mcBoolean }?,
+            attribute underline { mcBoolean }?
+        }*
+    }?
+}
+
+send = element send { xsd:string }
+
+plugin = element plugin {
+    attribute name { xsd:normalizedString }?,
+    attribute author { xsd:normalizedString }?,
+    attribute language { xsd:normalizedString }?,
+    attribute id { xsd:normalizedString }?,
+    attribute purpose { xsd:string }?,
+    attribute date_written { xsd:dateTime }?,
+    attribute date_modified { xsd:dateTime }?,
+    attribute sequence { xsd:unsignedInt }?,
+    attribute save_state { mcBoolean }?,
+    attribute requires { xsd:double }?,
+    attribute version { xsd:double }?,
+    empty
+}
+
+include_ = element include {
+    attribute name { xsd:normalizedString },
+    attribute plugin { mcBoolean }?
+}
