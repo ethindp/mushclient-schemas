@@ -172,7 +172,7 @@
       <xs:attribute name="paste_echo" type="mcBoolean"/>
       <xs:attribute name="play_sounds_in_background" type="mcBoolean"/>
       <xs:attribute name="pixel_offset" type="xs:unsignedLong"/>
-      <xs:attribute name="port" type="xs:unsignedShort"/>
+      <xs:attribute name="port" use="required" type="xs:unsignedShort"/>
       <xs:attribute name="proxy_port" type="xs:unsignedShort"/>
       <xs:attribute name="proxy_type" type="xs:unsignedByte"/>
       <xs:attribute name="re_evaluate_auto_say" type="mcBoolean"/>
@@ -238,7 +238,7 @@
       <xs:attribute name="chat_message_prefix" type="xs:normalizedString"/>
       <xs:attribute name="command_stack_character" type="xs:token"/>
       <xs:attribute name="editor_window_name" type="xs:normalizedString"/>
-      <xs:attribute name="id" type="xs:normalizedString"/>
+      <xs:attribute name="id" use="required" type="xs:normalizedString"/>
       <xs:attribute name="input_font_name" type="xs:normalizedString"/>
       <xs:attribute name="log_line_postamble_input" type="xs:normalizedString"/>
       <xs:attribute name="log_line_postamble_notes" type="xs:normalizedString"/>
@@ -247,7 +247,7 @@
       <xs:attribute name="log_line_preamble_notes" type="xs:normalizedString"/>
       <xs:attribute name="log_line_preamble_output" type="xs:normalizedString"/>
       <xs:attribute name="mapping_failure" type="xs:normalizedString"/>
-      <xs:attribute name="name" type="xs:normalizedString"/>
+      <xs:attribute name="name" use="required" type="xs:normalizedString"/>
       <xs:attribute name="new_activity_sound" type="xs:normalizedString"/>
       <xs:attribute name="on_mxp_close_tag" type="xs:token"/>
       <xs:attribute name="on_mxp_error" type="xs:token"/>
@@ -278,7 +278,7 @@
       <xs:attribute name="script_prefix" type="xs:normalizedString"/>
       <xs:attribute name="send_to_world_line_postamble" type="xs:normalizedString"/>
       <xs:attribute name="send_to_world_line_preamble" type="xs:normalizedString"/>
-      <xs:attribute name="site" type="xs:normalizedString"/>
+      <xs:attribute name="site" use="required" type="xs:normalizedString"/>
       <xs:attribute name="spam_message" type="xs:normalizedString"/>
       <xs:attribute name="speed_walk_filler" type="xs:normalizedString"/>
       <xs:attribute name="speed_walk_prefix" type="xs:normalizedString"/>
