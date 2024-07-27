@@ -1,3 +1,5 @@
+start = muclient
+
 mcBoolean = xsd:boolean | "y" | "n"
 
 muclient = element muclient {
