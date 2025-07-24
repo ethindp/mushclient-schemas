@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:simpleType name="mcBoolean">
-    <xs:union memberTypes="xs:boolean">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="y"/>
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="n"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:union>
-  </xs:simpleType>
   <xs:element name="muclient">
     <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="include"/>
-        <xs:choice>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="include"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element ref="plugin"/>
           <xs:element ref="world"/>
           <xs:element ref="triggers"/>
@@ -30,7 +16,7 @@
           <xs:element ref="keypad"/>
           <xs:element ref="printing"/>
         </xs:choice>
-      </xs:choice>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="world">
@@ -52,152 +38,152 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
-      <xs:attribute name="accept_chat_connections" type="mcBoolean"/>
-      <xs:attribute name="alternative_inverse" type="mcBoolean"/>
-      <xs:attribute name="alt_arrow_recalls_partial" type="mcBoolean"/>
-      <xs:attribute name="always_record_command_history" type="mcBoolean"/>
-      <xs:attribute name="arrows_change_history" type="mcBoolean"/>
-      <xs:attribute name="arrow_keys_wrap" type="mcBoolean"/>
-      <xs:attribute name="arrow_recalls_partial" type="mcBoolean"/>
-      <xs:attribute name="autosay_exclude_macros" type="mcBoolean"/>
-      <xs:attribute name="autosay_exclude_non_alpha" type="mcBoolean"/>
-      <xs:attribute name="auto_allow_files" type="mcBoolean"/>
-      <xs:attribute name="auto_allow_snooping" type="mcBoolean"/>
-      <xs:attribute name="auto_copy_to_clipboard_in_html" type="mcBoolean"/>
-      <xs:attribute name="auto_pause" type="mcBoolean"/>
-      <xs:attribute name="keep_pause_at_bottom" type="mcBoolean"/>
-      <xs:attribute name="auto_repeat" type="mcBoolean"/>
-      <xs:attribute name="auto_resize_command_window" type="mcBoolean"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
+      <xs:attribute name="accept_chat_connections" type="xs:boolean"/>
+      <xs:attribute name="alternative_inverse" type="xs:boolean"/>
+      <xs:attribute name="alt_arrow_recalls_partial" type="xs:boolean"/>
+      <xs:attribute name="always_record_command_history" type="xs:boolean"/>
+      <xs:attribute name="arrows_change_history" type="xs:boolean"/>
+      <xs:attribute name="arrow_keys_wrap" type="xs:boolean"/>
+      <xs:attribute name="arrow_recalls_partial" type="xs:boolean"/>
+      <xs:attribute name="autosay_exclude_macros" type="xs:boolean"/>
+      <xs:attribute name="autosay_exclude_non_alpha" type="xs:boolean"/>
+      <xs:attribute name="auto_allow_files" type="xs:boolean"/>
+      <xs:attribute name="auto_allow_snooping" type="xs:boolean"/>
+      <xs:attribute name="auto_copy_to_clipboard_in_html" type="xs:boolean"/>
+      <xs:attribute name="auto_pause" type="xs:boolean"/>
+      <xs:attribute name="keep_pause_at_bottom" type="xs:boolean"/>
+      <xs:attribute name="auto_repeat" type="xs:boolean"/>
+      <xs:attribute name="auto_resize_command_window" type="xs:boolean"/>
       <xs:attribute name="auto_resize_minimum_lines" type="xs:unsignedInt"/>
       <xs:attribute name="auto_resize_maximum_lines" type="xs:unsignedInt"/>
-      <xs:attribute name="auto_wrap_window_width" type="mcBoolean"/>
-      <xs:attribute name="carriage_return_clears_line" type="mcBoolean"/>
+      <xs:attribute name="auto_wrap_window_width" type="xs:boolean"/>
+      <xs:attribute name="carriage_return_clears_line" type="xs:boolean"/>
       <xs:attribute name="chat_foreground_colour" type="xs:normalizedString"/>
       <xs:attribute name="chat_background_colour" type="xs:normalizedString"/>
       <xs:attribute name="chat_max_lines_per_message" type="xs:unsignedLong"/>
       <xs:attribute name="chat_max_bytes_per_message" type="xs:unsignedLong"/>
       <xs:attribute name="chat_port" type="xs:unsignedShort"/>
-      <xs:attribute name="chat_sumchecks_to_sender" type="mcBoolean"/>
-      <xs:attribute name="confirm_before_replacing_typing" type="mcBoolean"/>
-      <xs:attribute name="confirm_on_paste" type="mcBoolean"/>
-      <xs:attribute name="confirm_on_send" type="mcBoolean"/>
+      <xs:attribute name="chat_sumchecks_to_sender" type="xs:boolean"/>
+      <xs:attribute name="confirm_before_replacing_typing" type="xs:boolean"/>
+      <xs:attribute name="confirm_on_paste" type="xs:boolean"/>
+      <xs:attribute name="confirm_on_send" type="xs:boolean"/>
       <xs:attribute name="connect_method" type="xs:unsignedByte"/>
-      <xs:attribute name="copy_selection_to_clipboard" type="mcBoolean"/>
-      <xs:attribute name="convert_ga_to_newline" type="mcBoolean"/>
-      <xs:attribute name="ctrl_n_goes_to_next_command" type="mcBoolean"/>
-      <xs:attribute name="ctrl_p_goes_to_previous_command" type="mcBoolean"/>
-      <xs:attribute name="ctrl_z_goes_to_end_of_buffer" type="mcBoolean"/>
-      <xs:attribute name="ctrl_backspace_deletes_last_word" type="mcBoolean"/>
-      <xs:attribute name="custom_16_is_default_colour" type="mcBoolean"/>
+      <xs:attribute name="copy_selection_to_clipboard" type="xs:boolean"/>
+      <xs:attribute name="convert_ga_to_newline" type="xs:boolean"/>
+      <xs:attribute name="ctrl_n_goes_to_next_command" type="xs:boolean"/>
+      <xs:attribute name="ctrl_p_goes_to_previous_command" type="xs:boolean"/>
+      <xs:attribute name="ctrl_z_goes_to_end_of_buffer" type="xs:boolean"/>
+      <xs:attribute name="ctrl_backspace_deletes_last_word" type="xs:boolean"/>
+      <xs:attribute name="custom_16_is_default_colour" type="xs:boolean"/>
       <xs:attribute name="default_trigger_send_to" type="xs:unsignedByte"/>
       <xs:attribute name="default_trigger_sequence" type="xs:unsignedLong"/>
-      <xs:attribute name="default_trigger_regexp" type="mcBoolean"/>
-      <xs:attribute name="default_trigger_expand_variables" type="mcBoolean"/>
-      <xs:attribute name="default_trigger_keep_evaluating" type="mcBoolean"/>
-      <xs:attribute name="default_trigger_ignore_case" type="mcBoolean"/>
+      <xs:attribute name="default_trigger_regexp" type="xs:boolean"/>
+      <xs:attribute name="default_trigger_expand_variables" type="xs:boolean"/>
+      <xs:attribute name="default_trigger_keep_evaluating" type="xs:boolean"/>
+      <xs:attribute name="default_trigger_ignore_case" type="xs:boolean"/>
       <xs:attribute name="default_alias_send_to" type="xs:unsignedByte"/>
       <xs:attribute name="default_alias_sequence" type="xs:unsignedLong"/>
-      <xs:attribute name="default_alias_regexp" type="mcBoolean"/>
-      <xs:attribute name="default_alias_expand_variables" type="mcBoolean"/>
-      <xs:attribute name="default_alias_keep_evaluating" type="mcBoolean"/>
-      <xs:attribute name="default_alias_ignore_case" type="mcBoolean"/>
+      <xs:attribute name="default_alias_regexp" type="xs:boolean"/>
+      <xs:attribute name="default_alias_expand_variables" type="xs:boolean"/>
+      <xs:attribute name="default_alias_keep_evaluating" type="xs:boolean"/>
+      <xs:attribute name="default_alias_ignore_case" type="xs:boolean"/>
       <xs:attribute name="default_timer_send_to" type="xs:unsignedByte"/>
-      <xs:attribute name="detect_pueblo" type="mcBoolean"/>
-      <xs:attribute name="do_not_add_macros_to_command_history" type="mcBoolean"/>
-      <xs:attribute name="do_not_show_outstanding_lines" type="mcBoolean"/>
-      <xs:attribute name="do_not_translate_iac_to_iac_iac" type="mcBoolean"/>
-      <xs:attribute name="disable_compression" type="mcBoolean"/>
-      <xs:attribute name="display_my_input" type="mcBoolean"/>
-      <xs:attribute name="double_click_inserts" type="mcBoolean"/>
-      <xs:attribute name="double_click_sends" type="mcBoolean"/>
+      <xs:attribute name="detect_pueblo" type="xs:boolean"/>
+      <xs:attribute name="do_not_add_macros_to_command_history" type="xs:boolean"/>
+      <xs:attribute name="do_not_show_outstanding_lines" type="xs:boolean"/>
+      <xs:attribute name="do_not_translate_iac_to_iac_iac" type="xs:boolean"/>
+      <xs:attribute name="disable_compression" type="xs:boolean"/>
+      <xs:attribute name="display_my_input" type="xs:boolean"/>
+      <xs:attribute name="double_click_inserts" type="xs:boolean"/>
+      <xs:attribute name="double_click_sends" type="xs:boolean"/>
       <xs:attribute name="echo_colour" type="xs:unsignedByte"/>
-      <xs:attribute name="echo_hyperlink_in_output_window" type="mcBoolean"/>
-      <xs:attribute name="edit_script_with_notepad" type="mcBoolean"/>
-      <xs:attribute name="enable_aliases" type="mcBoolean"/>
-      <xs:attribute name="enable_auto_say" type="mcBoolean"/>
-      <xs:attribute name="enable_beeps" type="mcBoolean"/>
-      <xs:attribute name="enable_command_stack" type="mcBoolean"/>
-      <xs:attribute name="enable_scripts" type="mcBoolean"/>
-      <xs:attribute name="enable_spam_prevention" type="mcBoolean"/>
-      <xs:attribute name="enable_speed_walk" type="mcBoolean"/>
-      <xs:attribute name="enable_timers" type="mcBoolean"/>
-      <xs:attribute name="enable_triggers" type="mcBoolean"/>
-      <xs:attribute name="enable_trigger_sounds" type="mcBoolean"/>
-      <xs:attribute name="escape_deletes_input" type="mcBoolean"/>
+      <xs:attribute name="echo_hyperlink_in_output_window" type="xs:boolean"/>
+      <xs:attribute name="edit_script_with_notepad" type="xs:boolean"/>
+      <xs:attribute name="enable_aliases" type="xs:boolean"/>
+      <xs:attribute name="enable_auto_say" type="xs:boolean"/>
+      <xs:attribute name="enable_beeps" type="xs:boolean"/>
+      <xs:attribute name="enable_command_stack" type="xs:boolean"/>
+      <xs:attribute name="enable_scripts" type="xs:boolean"/>
+      <xs:attribute name="enable_spam_prevention" type="xs:boolean"/>
+      <xs:attribute name="enable_speed_walk" type="xs:boolean"/>
+      <xs:attribute name="enable_timers" type="xs:boolean"/>
+      <xs:attribute name="enable_triggers" type="xs:boolean"/>
+      <xs:attribute name="enable_trigger_sounds" type="xs:boolean"/>
+      <xs:attribute name="escape_deletes_input" type="xs:boolean"/>
       <xs:attribute name="fade_output_buffer_after_seconds" type="xs:unsignedByte"/>
       <xs:attribute name="fade_output_opacity_percent" type="xs:unsignedByte"/>
       <xs:attribute name="fade_output_seconds" type="xs:unsignedByte"/>
-      <xs:attribute name="flash_taskbar_icon" type="mcBoolean"/>
+      <xs:attribute name="flash_taskbar_icon" type="xs:boolean"/>
       <xs:attribute name="history_lines" type="xs:unsignedLong"/>
-      <xs:attribute name="hyperlink_adds_to_command_history" type="mcBoolean"/>
+      <xs:attribute name="hyperlink_adds_to_command_history" type="xs:boolean"/>
       <xs:attribute name="hyperlink_colour" type="xs:token"/>
-      <xs:attribute name="ignore_chat_colours" type="mcBoolean"/>
-      <xs:attribute name="ignore_mxp_colour_changes" type="mcBoolean"/>
-      <xs:attribute name="indent_paras" type="mcBoolean"/>
+      <xs:attribute name="ignore_chat_colours" type="xs:boolean"/>
+      <xs:attribute name="ignore_mxp_colour_changes" type="xs:boolean"/>
+      <xs:attribute name="indent_paras" type="xs:boolean"/>
       <xs:attribute name="input_background_colour" type="xs:token"/>
       <xs:attribute name="input_font_height" type="xs:unsignedByte"/>
-      <xs:attribute name="input_font_italic" type="mcBoolean"/>
+      <xs:attribute name="input_font_italic" type="xs:boolean"/>
       <xs:attribute name="input_font_weight" type="xs:unsignedLong"/>
       <xs:attribute name="input_font_charset" type="xs:unsignedShort"/>
       <xs:attribute name="input_text_colour" type="xs:token"/>
-      <xs:attribute name="keep_commands_on_same_line" type="mcBoolean"/>
-      <xs:attribute name="keypad_enable" type="mcBoolean"/>
-      <xs:attribute name="line_information" type="mcBoolean"/>
+      <xs:attribute name="keep_commands_on_same_line" type="xs:boolean"/>
+      <xs:attribute name="keypad_enable" type="xs:boolean"/>
+      <xs:attribute name="line_information" type="xs:boolean"/>
       <xs:attribute name="line_spacing" type="xs:unsignedByte"/>
-      <xs:attribute name="log_html" type="mcBoolean"/>
-      <xs:attribute name="log_input" type="mcBoolean"/>
-      <xs:attribute name="log_in_colour" type="mcBoolean"/>
-      <xs:attribute name="log_notes" type="mcBoolean"/>
-      <xs:attribute name="log_output" type="mcBoolean"/>
-      <xs:attribute name="log_raw" type="mcBoolean"/>
-      <xs:attribute name="log_script_errors" type="mcBoolean"/>
-      <xs:attribute name="lower_case_tab_completion" type="mcBoolean"/>
-      <xs:attribute name="map_failure_regexp" type="mcBoolean"/>
+      <xs:attribute name="log_html" type="xs:boolean"/>
+      <xs:attribute name="log_input" type="xs:boolean"/>
+      <xs:attribute name="log_in_colour" type="xs:boolean"/>
+      <xs:attribute name="log_notes" type="xs:boolean"/>
+      <xs:attribute name="log_output" type="xs:boolean"/>
+      <xs:attribute name="log_raw" type="xs:boolean"/>
+      <xs:attribute name="log_script_errors" type="xs:boolean"/>
+      <xs:attribute name="lower_case_tab_completion" type="xs:boolean"/>
+      <xs:attribute name="map_failure_regexp" type="xs:boolean"/>
       <xs:attribute name="max_output_lines" type="xs:unsignedInt"/>
-      <xs:attribute name="mud_can_change_link_colour" type="mcBoolean"/>
-      <xs:attribute name="mud_can_remove_underline" type="mcBoolean"/>
-      <xs:attribute name="mud_can_change_options" type="mcBoolean"/>
+      <xs:attribute name="mud_can_change_link_colour" type="xs:boolean"/>
+      <xs:attribute name="mud_can_remove_underline" type="xs:boolean"/>
+      <xs:attribute name="mud_can_change_options" type="xs:boolean"/>
       <xs:attribute name="mxp_debug_level" type="xs:unsignedByte"/>
-      <xs:attribute name="naws" type="mcBoolean"/>
+      <xs:attribute name="naws" type="xs:boolean"/>
       <xs:attribute name="note_text_colour" type="xs:token"/>
-      <xs:attribute name="no_echo_off" type="mcBoolean"/>
-      <xs:attribute name="omit_date_from_save_files" type="mcBoolean"/>
+      <xs:attribute name="no_echo_off" type="xs:boolean"/>
+      <xs:attribute name="omit_date_from_save_files" type="xs:boolean"/>
       <xs:attribute name="output_font_height" type="xs:unsignedByte"/>
       <xs:attribute name="output_font_weight" type="xs:unsignedLong"/>
       <xs:attribute name="output_font_charset" type="xs:unsignedShort"/>
-      <xs:attribute name="paste_commented_softcode" type="mcBoolean"/>
+      <xs:attribute name="paste_commented_softcode" type="xs:boolean"/>
       <xs:attribute name="paste_delay" type="xs:unsignedLong"/>
       <xs:attribute name="paste_delay_per_lines" type="xs:unsignedLong"/>
-      <xs:attribute name="paste_echo" type="mcBoolean"/>
-      <xs:attribute name="play_sounds_in_background" type="mcBoolean"/>
+      <xs:attribute name="paste_echo" type="xs:boolean"/>
+      <xs:attribute name="play_sounds_in_background" type="xs:boolean"/>
       <xs:attribute name="pixel_offset" type="xs:unsignedLong"/>
       <xs:attribute name="port" use="required" type="xs:unsignedShort"/>
       <xs:attribute name="proxy_port" type="xs:unsignedShort"/>
       <xs:attribute name="proxy_type" type="xs:unsignedByte"/>
-      <xs:attribute name="re_evaluate_auto_say" type="mcBoolean"/>
-      <xs:attribute name="save_deleted_command" type="mcBoolean"/>
-      <xs:attribute name="save_world_automatically" type="mcBoolean"/>
+      <xs:attribute name="re_evaluate_auto_say" type="xs:boolean"/>
+      <xs:attribute name="save_deleted_command" type="xs:boolean"/>
+      <xs:attribute name="save_world_automatically" type="xs:boolean"/>
       <xs:attribute name="script_reload_option" type="xs:unsignedByte"/>
-      <xs:attribute name="script_errors_to_output_window" type="mcBoolean"/>
-      <xs:attribute name="send_echo" type="mcBoolean"/>
-      <xs:attribute name="send_double_ff_for_hex_ff" type="mcBoolean"/>
-      <xs:attribute name="send_file_commented_softcode" type="mcBoolean"/>
+      <xs:attribute name="script_errors_to_output_window" type="xs:boolean"/>
+      <xs:attribute name="send_echo" type="xs:boolean"/>
+      <xs:attribute name="send_double_ff_for_hex_ff" type="xs:boolean"/>
+      <xs:attribute name="send_file_commented_softcode" type="xs:boolean"/>
       <xs:attribute name="send_file_delay" type="xs:unsignedLong"/>
       <xs:attribute name="send_file_delay_per_lines" type="xs:unsignedLong"/>
-      <xs:attribute name="send_keep_alives" type="mcBoolean"/>
-      <xs:attribute name="send_mxp_afk_response" type="mcBoolean"/>
-      <xs:attribute name="show_bold" type="mcBoolean"/>
-      <xs:attribute name="show_connect_disconnect" type="mcBoolean"/>
-      <xs:attribute name="show_grid_lines_in_list_views" type="mcBoolean"/>
-      <xs:attribute name="show_italic" type="mcBoolean"/>
-      <xs:attribute name="show_underline" type="mcBoolean"/>
+      <xs:attribute name="send_keep_alives" type="xs:boolean"/>
+      <xs:attribute name="send_mxp_afk_response" type="xs:boolean"/>
+      <xs:attribute name="show_bold" type="xs:boolean"/>
+      <xs:attribute name="show_connect_disconnect" type="xs:boolean"/>
+      <xs:attribute name="show_grid_lines_in_list_views" type="xs:boolean"/>
+      <xs:attribute name="show_italic" type="xs:boolean"/>
+      <xs:attribute name="show_underline" type="xs:boolean"/>
       <xs:attribute name="spam_line_count" type="xs:unsignedLong"/>
       <xs:attribute name="speed_walk_delay" type="xs:unsignedLong"/>
-      <xs:attribute name="spell_check_on_send" type="mcBoolean"/>
-      <xs:attribute name="start_paused" type="mcBoolean"/>
+      <xs:attribute name="spell_check_on_send" type="xs:boolean"/>
+      <xs:attribute name="start_paused" type="xs:boolean"/>
       <xs:attribute name="tab_completion_lines" type="xs:unsignedLong"/>
-      <xs:attribute name="tab_completion_space" type="mcBoolean"/>
+      <xs:attribute name="tab_completion_space" type="xs:boolean"/>
       <xs:attribute name="timestamp_input_text_colour" type="xs:token"/>
       <xs:attribute name="timestamp_notes_text_colour" type="xs:token"/>
       <xs:attribute name="timestamp_output_text_colour" type="xs:token"/>
@@ -206,29 +192,29 @@
       <xs:attribute name="timestamp_output_back_colour" type="xs:token"/>
       <xs:attribute name="tool_tip_visible_time" type="xs:unsignedLong"/>
       <xs:attribute name="tool_tip_start_time" type="xs:unsignedLong"/>
-      <xs:attribute name="translate_backslash_sequences" type="mcBoolean"/>
-      <xs:attribute name="translate_german" type="mcBoolean"/>
-      <xs:attribute name="treeview_triggers" type="mcBoolean"/>
-      <xs:attribute name="treeview_aliases" type="mcBoolean"/>
-      <xs:attribute name="treeview_timers" type="mcBoolean"/>
-      <xs:attribute name="underline_hyperlinks" type="mcBoolean"/>
-      <xs:attribute name="unpause_on_send" type="mcBoolean"/>
-      <xs:attribute name="use_custom_link_colour" type="mcBoolean"/>
-      <xs:attribute name="use_default_aliases" type="mcBoolean"/>
-      <xs:attribute name="use_default_colours" type="mcBoolean"/>
-      <xs:attribute name="use_default_input_font" type="mcBoolean"/>
-      <xs:attribute name="use_default_macros" type="mcBoolean"/>
-      <xs:attribute name="use_default_output_font" type="mcBoolean"/>
-      <xs:attribute name="use_default_timers" type="mcBoolean"/>
-      <xs:attribute name="use_default_triggers" type="mcBoolean"/>
-      <xs:attribute name="use_mxp" type="mcBoolean"/>
-      <xs:attribute name="utf_8" type="mcBoolean"/>
-      <xs:attribute name="validate_incoming_chat_calls" type="mcBoolean"/>
-      <xs:attribute name="warn_if_scripting_inactive" type="mcBoolean"/>
-      <xs:attribute name="wrap" type="mcBoolean"/>
-      <xs:attribute name="wrap_input" type="mcBoolean"/>
+      <xs:attribute name="translate_backslash_sequences" type="xs:boolean"/>
+      <xs:attribute name="translate_german" type="xs:boolean"/>
+      <xs:attribute name="treeview_triggers" type="xs:boolean"/>
+      <xs:attribute name="treeview_aliases" type="xs:boolean"/>
+      <xs:attribute name="treeview_timers" type="xs:boolean"/>
+      <xs:attribute name="underline_hyperlinks" type="xs:boolean"/>
+      <xs:attribute name="unpause_on_send" type="xs:boolean"/>
+      <xs:attribute name="use_custom_link_colour" type="xs:boolean"/>
+      <xs:attribute name="use_default_aliases" type="xs:boolean"/>
+      <xs:attribute name="use_default_colours" type="xs:boolean"/>
+      <xs:attribute name="use_default_input_font" type="xs:boolean"/>
+      <xs:attribute name="use_default_macros" type="xs:boolean"/>
+      <xs:attribute name="use_default_output_font" type="xs:boolean"/>
+      <xs:attribute name="use_default_timers" type="xs:boolean"/>
+      <xs:attribute name="use_default_triggers" type="xs:boolean"/>
+      <xs:attribute name="use_mxp" type="xs:boolean"/>
+      <xs:attribute name="utf_8" type="xs:boolean"/>
+      <xs:attribute name="validate_incoming_chat_calls" type="xs:boolean"/>
+      <xs:attribute name="warn_if_scripting_inactive" type="xs:boolean"/>
+      <xs:attribute name="wrap" type="xs:boolean"/>
+      <xs:attribute name="wrap_input" type="xs:boolean"/>
       <xs:attribute name="wrap_column" type="xs:unsignedLong"/>
-      <xs:attribute name="write_world_name_to_log" type="mcBoolean"/>
+      <xs:attribute name="write_world_name_to_log" type="xs:boolean"/>
       <xs:attribute name="auto_log_file_name" type="xs:normalizedString"/>
       <xs:attribute name="auto_say_override_prefix" type="xs:token"/>
       <xs:attribute name="auto_say_string" type="xs:normalizedString"/>
@@ -308,7 +294,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="trigger">
@@ -316,48 +302,48 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="send"/>
       </xs:sequence>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="clipboard_arg" type="xs:normalizedString"/>
       <xs:attribute name="custom_colour" type="xs:unsignedShort"/>
-      <xs:attribute name="enabled" type="mcBoolean"/>
-      <xs:attribute name="expand_variables" type="mcBoolean"/>
+      <xs:attribute name="enabled" type="xs:boolean"/>
+      <xs:attribute name="expand_variables" type="xs:boolean"/>
       <xs:attribute name="group" type="xs:normalizedString"/>
       <xs:attribute name="variable" type="xs:token"/>
       <xs:attribute name="pane" type="xs:token"/>
-      <xs:attribute name="ignore_case" type="mcBoolean"/>
-      <xs:attribute name="keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="ignore_case" type="xs:boolean"/>
+      <xs:attribute name="keep_evaluating" type="xs:boolean"/>
       <xs:attribute name="lines_to_match" type="xs:unsignedShort"/>
       <xs:attribute name="colour_change_type" type="xs:unsignedShort"/>
       <xs:attribute name="match" type="xs:string"/>
-      <xs:attribute name="multi_line" type="mcBoolean"/>
+      <xs:attribute name="multi_line" type="xs:boolean"/>
       <xs:attribute name="name" type="xs:normalizedString"/>
-      <xs:attribute name="omit_from_log" type="mcBoolean"/>
-      <xs:attribute name="omit_from_output" type="mcBoolean"/>
-      <xs:attribute name="regexp" type="mcBoolean"/>
-      <xs:attribute name="repeat" type="mcBoolean"/>
+      <xs:attribute name="omit_from_log" type="xs:boolean"/>
+      <xs:attribute name="omit_from_output" type="xs:boolean"/>
+      <xs:attribute name="regexp" type="xs:boolean"/>
+      <xs:attribute name="repeat" type="xs:boolean"/>
       <xs:attribute name="script" type="xs:string"/>
       <xs:attribute name="send_to" type="xs:unsignedShort"/>
       <xs:attribute name="sequence" type="xs:unsignedShort"/>
       <xs:attribute name="sound" type="xs:normalizedString"/>
-      <xs:attribute name="sound_if_inactive" type="mcBoolean"/>
-      <xs:attribute name="lowercase_wildcard" type="mcBoolean"/>
-      <xs:attribute name="temporary" type="mcBoolean"/>
+      <xs:attribute name="sound_if_inactive" type="xs:boolean"/>
+      <xs:attribute name="lowercase_wildcard" type="xs:boolean"/>
+      <xs:attribute name="temporary" type="xs:boolean"/>
       <xs:attribute name="user" type="xs:long"/>
-      <xs:attribute name="one_shot" type="mcBoolean"/>
+      <xs:attribute name="one_shot" type="xs:boolean"/>
       <xs:attribute name="make_bold" type="xs:unsignedShort"/>
       <xs:attribute name="make_italic" type="xs:unsignedShort"/>
       <xs:attribute name="make_underline" type="xs:unsignedShort"/>
       <xs:attribute name="text_colour" type="xs:unsignedShort"/>
       <xs:attribute name="back_colour" type="xs:unsignedShort"/>
-      <xs:attribute name="bold" type="mcBoolean"/>
-      <xs:attribute name="match_back_colour" type="mcBoolean"/>
-      <xs:attribute name="match_bold" type="mcBoolean"/>
-      <xs:attribute name="match_inverse" type="mcBoolean"/>
-      <xs:attribute name="match_italic" type="mcBoolean"/>
-      <xs:attribute name="match_text_colour" type="mcBoolean"/>
-      <xs:attribute name="match_underline" type="mcBoolean"/>
-      <xs:attribute name="inverse" type="mcBoolean"/>
-      <xs:attribute name="italic" type="mcBoolean"/>
+      <xs:attribute name="bold" type="xs:boolean"/>
+      <xs:attribute name="match_back_colour" type="xs:boolean"/>
+      <xs:attribute name="match_bold" type="xs:boolean"/>
+      <xs:attribute name="match_inverse" type="xs:boolean"/>
+      <xs:attribute name="match_italic" type="xs:boolean"/>
+      <xs:attribute name="match_text_colour" type="xs:boolean"/>
+      <xs:attribute name="match_underline" type="xs:boolean"/>
+      <xs:attribute name="inverse" type="xs:boolean"/>
+      <xs:attribute name="italic" type="xs:boolean"/>
       <xs:attribute name="other_text_colour" type="xs:normalizedString"/>
       <xs:attribute name="other_back_colour" type="xs:normalizedString"/>
     </xs:complexType>
@@ -369,7 +355,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="alias">
@@ -377,30 +363,30 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="send"/>
       </xs:sequence>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="name" type="xs:normalizedString"/>
       <xs:attribute name="script" type="xs:string"/>
       <xs:attribute name="match" use="required" type="xs:string"/>
-      <xs:attribute name="enabled" type="mcBoolean"/>
-      <xs:attribute name="expand_variables" type="mcBoolean"/>
+      <xs:attribute name="enabled" type="xs:boolean"/>
+      <xs:attribute name="expand_variables" type="xs:boolean"/>
       <xs:attribute name="group" type="xs:normalizedString"/>
       <xs:attribute name="variable" type="xs:token"/>
-      <xs:attribute name="omit_from_log" type="mcBoolean"/>
-      <xs:attribute name="regexp" type="mcBoolean"/>
+      <xs:attribute name="omit_from_log" type="xs:boolean"/>
+      <xs:attribute name="regexp" type="xs:boolean"/>
       <xs:attribute name="send_to" type="xs:unsignedShort"/>
-      <xs:attribute name="omit_from_command_history" type="mcBoolean"/>
-      <xs:attribute name="omit_from_output" type="mcBoolean"/>
-      <xs:attribute name="menu" type="mcBoolean"/>
-      <xs:attribute name="ignore_case" type="mcBoolean"/>
-      <xs:attribute name="keep_evaluating" type="mcBoolean"/>
+      <xs:attribute name="omit_from_command_history" type="xs:boolean"/>
+      <xs:attribute name="omit_from_output" type="xs:boolean"/>
+      <xs:attribute name="menu" type="xs:boolean"/>
+      <xs:attribute name="ignore_case" type="xs:boolean"/>
+      <xs:attribute name="keep_evaluating" type="xs:boolean"/>
       <xs:attribute name="sequence" type="xs:unsignedShort"/>
-      <xs:attribute name="echo_alias" type="mcBoolean"/>
+      <xs:attribute name="echo_alias" type="xs:boolean"/>
       <xs:attribute name="user" type="xs:long"/>
-      <xs:attribute name="temporary" type="mcBoolean"/>
-      <xs:attribute name="one_shot" type="mcBoolean"/>
-      <xs:attribute name="speed_walk" type="mcBoolean"/>
-      <xs:attribute name="set_variable" type="mcBoolean"/>
-      <xs:attribute name="queue" type="mcBoolean"/>
+      <xs:attribute name="temporary" type="xs:boolean"/>
+      <xs:attribute name="one_shot" type="xs:boolean"/>
+      <xs:attribute name="speed_walk" type="xs:boolean"/>
+      <xs:attribute name="set_variable" type="xs:boolean"/>
+      <xs:attribute name="queue" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="timers">
@@ -410,7 +396,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="timer">
@@ -418,18 +404,18 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="send"/>
       </xs:sequence>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="name" type="xs:normalizedString"/>
       <xs:attribute name="script" type="xs:string"/>
-      <xs:attribute name="enabled" type="mcBoolean"/>
-      <xs:attribute name="at_time" type="mcBoolean"/>
+      <xs:attribute name="enabled" type="xs:boolean"/>
+      <xs:attribute name="at_time" type="xs:boolean"/>
       <xs:attribute name="group" type="xs:normalizedString"/>
       <xs:attribute name="variable" type="xs:token"/>
-      <xs:attribute name="one_shot" type="mcBoolean"/>
-      <xs:attribute name="active_closed" type="mcBoolean"/>
+      <xs:attribute name="one_shot" type="xs:boolean"/>
+      <xs:attribute name="active_closed" type="xs:boolean"/>
       <xs:attribute name="send_to" type="xs:unsignedShort"/>
-      <xs:attribute name="omit_from_output" type="mcBoolean"/>
-      <xs:attribute name="omit_from_log" type="mcBoolean"/>
+      <xs:attribute name="omit_from_output" type="xs:boolean"/>
+      <xs:attribute name="omit_from_log" type="xs:boolean"/>
       <xs:attribute name="hour" type="xs:unsignedByte"/>
       <xs:attribute name="minute" type="xs:unsignedByte"/>
       <xs:attribute name="second" type="xs:double"/>
@@ -437,9 +423,9 @@
       <xs:attribute name="offset_minute" type="xs:unsignedByte"/>
       <xs:attribute name="offset_second" type="xs:double"/>
       <xs:attribute name="user" type="xs:long"/>
-      <xs:attribute name="temporary" type="mcBoolean"/>
-      <xs:attribute name="speed_walk" type="mcBoolean"/>
-      <xs:attribute name="note" type="mcBoolean"/>
+      <xs:attribute name="temporary" type="xs:boolean"/>
+      <xs:attribute name="speed_walk" type="xs:boolean"/>
+      <xs:attribute name="note" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="macros">
@@ -449,7 +435,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="macro">
@@ -457,7 +443,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="send"/>
       </xs:sequence>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="name" type="xs:normalizedString"/>
       <xs:attribute name="type" type="xs:normalizedString"/>
     </xs:complexType>
@@ -469,16 +455,16 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="variable">
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="defaults" type="mcBoolean"/>
+          <xs:attribute name="defaults" type="xs:boolean"/>
           <xs:attribute name="name" type="xs:token"/>
-          <xs:attribute name="trim" type="mcBoolean"/>
+          <xs:attribute name="trim" type="xs:boolean"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
@@ -491,7 +477,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:group name="colours_ansi">
@@ -511,7 +497,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
           <xs:complexType>
-            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="defaults" type="xs:boolean"/>
             <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
             <xs:attribute name="rgb" use="required" type="xs:normalizedString"/>
           </xs:complexType>
@@ -524,7 +510,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
           <xs:complexType>
-            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="defaults" type="xs:boolean"/>
             <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
             <xs:attribute name="rgb" use="required" type="xs:normalizedString"/>
           </xs:complexType>
@@ -537,7 +523,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" name="colour">
           <xs:complexType>
-            <xs:attribute name="defaults" type="mcBoolean"/>
+            <xs:attribute name="defaults" type="xs:boolean"/>
             <xs:attribute name="seq" use="required" type="xs:unsignedInt"/>
             <xs:attribute name="name" use="required" type="xs:normalizedString"/>
             <xs:attribute name="text" use="required" type="xs:normalizedString"/>
@@ -554,7 +540,7 @@
       </xs:sequence>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="key">
@@ -562,7 +548,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="send"/>
       </xs:sequence>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="name" use="required" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
@@ -571,7 +557,7 @@
       <xs:group minOccurs="0" maxOccurs="unbounded" ref="printing_ansi"/>
       <xs:attribute name="world_file_version" type="xs:long"/>
       <xs:attribute name="muclient_version" type="xs:token"/>
-      <xs:attribute name="date_saved" type="xs:date"/>
+      <xs:attribute name="date_saved" type="xs:normalizedString"/>
     </xs:complexType>
   </xs:element>
   <xs:group name="printing_ansi">
@@ -600,11 +586,11 @@
   </xs:group>
   <xs:element name="style">
     <xs:complexType>
-      <xs:attribute name="defaults" type="mcBoolean"/>
+      <xs:attribute name="defaults" type="xs:boolean"/>
       <xs:attribute name="seq" type="xs:long"/>
-      <xs:attribute name="bold" type="mcBoolean"/>
-      <xs:attribute name="italic" type="mcBoolean"/>
-      <xs:attribute name="underline" type="mcBoolean"/>
+      <xs:attribute name="bold" type="xs:boolean"/>
+      <xs:attribute name="italic" type="xs:boolean"/>
+      <xs:attribute name="underline" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="send" type="xs:string"/>
@@ -618,7 +604,7 @@
       <xs:attribute name="date_written" type="xs:dateTime"/>
       <xs:attribute name="date_modified" type="xs:dateTime"/>
       <xs:attribute name="sequence" type="xs:unsignedInt"/>
-      <xs:attribute name="save_state" type="mcBoolean"/>
+      <xs:attribute name="save_state" type="xs:boolean"/>
       <xs:attribute name="requires" type="xs:double"/>
       <xs:attribute name="version" type="xs:double"/>
     </xs:complexType>
@@ -626,7 +612,7 @@
   <xs:element name="include">
     <xs:complexType>
       <xs:attribute name="name" use="required" type="xs:normalizedString"/>
-      <xs:attribute name="plugin" type="mcBoolean"/>
+      <xs:attribute name="plugin" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>

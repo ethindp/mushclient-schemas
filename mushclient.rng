@@ -3,51 +3,42 @@
   <start>
     <ref name="muclient"/>
   </start>
-  <define name="mcBoolean">
-    <choice>
-      <data type="boolean"/>
-      <value>y</value>
-      <value>n</value>
-    </choice>
-  </define>
   <define name="muclient">
     <element name="muclient">
+      <zeroOrMore>
+        <ref name="include_"/>
+      </zeroOrMore>
       <interleave>
-        <zeroOrMore>
-          <ref name="include_"/>
-        </zeroOrMore>
-        <interleave>
-          <optional>
-            <ref name="plugin"/>
-          </optional>
-          <optional>
-            <ref name="world"/>
-          </optional>
-          <optional>
-            <ref name="triggers"/>
-          </optional>
-          <optional>
-            <ref name="aliases"/>
-          </optional>
-          <optional>
-            <ref name="timers"/>
-          </optional>
-          <optional>
-            <ref name="macros"/>
-          </optional>
-          <optional>
-            <ref name="variables"/>
-          </optional>
-          <optional>
-            <ref name="colours"/>
-          </optional>
-          <optional>
-            <ref name="keypad"/>
-          </optional>
-          <optional>
-            <ref name="printing"/>
-          </optional>
-        </interleave>
+        <optional>
+          <ref name="plugin"/>
+        </optional>
+        <optional>
+          <ref name="world"/>
+        </optional>
+        <optional>
+          <ref name="triggers"/>
+        </optional>
+        <optional>
+          <ref name="aliases"/>
+        </optional>
+        <optional>
+          <ref name="timers"/>
+        </optional>
+        <optional>
+          <ref name="macros"/>
+        </optional>
+        <optional>
+          <ref name="variables"/>
+        </optional>
+        <optional>
+          <ref name="colours"/>
+        </optional>
+        <optional>
+          <ref name="keypad"/>
+        </optional>
+        <optional>
+          <ref name="printing"/>
+        </optional>
       </interleave>
     </element>
   </define>
@@ -65,87 +56,87 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="accept_chat_connections">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="alternative_inverse">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="alt_arrow_recalls_partial">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="always_record_command_history">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="arrows_change_history">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="arrow_keys_wrap">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="arrow_recalls_partial">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="autosay_exclude_macros">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="autosay_exclude_non_alpha">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_allow_files">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_allow_snooping">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_copy_to_clipboard_in_html">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_pause">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="keep_pause_at_bottom">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_repeat">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auto_resize_command_window">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -160,12 +151,12 @@
       </optional>
       <optional>
         <attribute name="auto_wrap_window_width">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="carriage_return_clears_line">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -195,22 +186,22 @@
       </optional>
       <optional>
         <attribute name="chat_sumchecks_to_sender">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="confirm_before_replacing_typing">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="confirm_on_paste">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="confirm_on_send">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -220,37 +211,37 @@
       </optional>
       <optional>
         <attribute name="copy_selection_to_clipboard">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="convert_ga_to_newline">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ctrl_n_goes_to_next_command">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ctrl_p_goes_to_previous_command">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ctrl_z_goes_to_end_of_buffer">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ctrl_backspace_deletes_last_word">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="custom_16_is_default_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -265,22 +256,22 @@
       </optional>
       <optional>
         <attribute name="default_trigger_regexp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_trigger_expand_variables">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_trigger_keep_evaluating">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_trigger_ignore_case">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -295,22 +286,22 @@
       </optional>
       <optional>
         <attribute name="default_alias_regexp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_alias_expand_variables">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_alias_keep_evaluating">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="default_alias_ignore_case">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -320,42 +311,42 @@
       </optional>
       <optional>
         <attribute name="detect_pueblo">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="do_not_add_macros_to_command_history">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="do_not_show_outstanding_lines">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="do_not_translate_iac_to_iac_iac">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="disable_compression">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="display_my_input">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="double_click_inserts">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="double_click_sends">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -365,67 +356,67 @@
       </optional>
       <optional>
         <attribute name="echo_hyperlink_in_output_window">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="edit_script_with_notepad">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_aliases">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_auto_say">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_beeps">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_command_stack">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_scripts">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_spam_prevention">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_speed_walk">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_timers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_triggers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="enable_trigger_sounds">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="escape_deletes_input">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -445,7 +436,7 @@
       </optional>
       <optional>
         <attribute name="flash_taskbar_icon">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -455,7 +446,7 @@
       </optional>
       <optional>
         <attribute name="hyperlink_adds_to_command_history">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -465,17 +456,17 @@
       </optional>
       <optional>
         <attribute name="ignore_chat_colours">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ignore_mxp_colour_changes">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="indent_paras">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -490,7 +481,7 @@
       </optional>
       <optional>
         <attribute name="input_font_italic">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -510,17 +501,17 @@
       </optional>
       <optional>
         <attribute name="keep_commands_on_same_line">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="keypad_enable">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="line_information">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -530,47 +521,47 @@
       </optional>
       <optional>
         <attribute name="log_html">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_input">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_in_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_notes">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_output">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_raw">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="log_script_errors">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="lower_case_tab_completion">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="map_failure_regexp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -580,17 +571,17 @@
       </optional>
       <optional>
         <attribute name="mud_can_change_link_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="mud_can_remove_underline">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="mud_can_change_options">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -600,7 +591,7 @@
       </optional>
       <optional>
         <attribute name="naws">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -610,12 +601,12 @@
       </optional>
       <optional>
         <attribute name="no_echo_off">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="omit_date_from_save_files">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -635,7 +626,7 @@
       </optional>
       <optional>
         <attribute name="paste_commented_softcode">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -650,12 +641,12 @@
       </optional>
       <optional>
         <attribute name="paste_echo">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="play_sounds_in_background">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -678,17 +669,17 @@
       </optional>
       <optional>
         <attribute name="re_evaluate_auto_say">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="save_deleted_command">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="save_world_automatically">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -698,22 +689,22 @@
       </optional>
       <optional>
         <attribute name="script_errors_to_output_window">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="send_echo">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="send_double_ff_for_hex_ff">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="send_file_commented_softcode">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -728,37 +719,37 @@
       </optional>
       <optional>
         <attribute name="send_keep_alives">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="send_mxp_afk_response">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="show_bold">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="show_connect_disconnect">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="show_grid_lines_in_list_views">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="show_italic">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="show_underline">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -773,12 +764,12 @@
       </optional>
       <optional>
         <attribute name="spell_check_on_send">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="start_paused">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -788,7 +779,7 @@
       </optional>
       <optional>
         <attribute name="tab_completion_space">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -833,107 +824,107 @@
       </optional>
       <optional>
         <attribute name="translate_backslash_sequences">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="translate_german">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="treeview_triggers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="treeview_aliases">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="treeview_timers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="underline_hyperlinks">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="unpause_on_send">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_custom_link_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_aliases">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_colours">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_input_font">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_macros">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_output_font">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_timers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_default_triggers">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="use_mxp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="utf_8">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="validate_incoming_chat_calls">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="warn_if_scripting_inactive">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="wrap">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="wrap_input">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -943,7 +934,7 @@
       </optional>
       <optional>
         <attribute name="write_world_name_to_log">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1345,7 +1336,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -1358,7 +1349,7 @@
     <element name="trigger">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1373,12 +1364,12 @@
       </optional>
       <optional>
         <attribute name="enabled">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="expand_variables">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1398,12 +1389,12 @@
       </optional>
       <optional>
         <attribute name="ignore_case">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="keep_evaluating">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1423,7 +1414,7 @@
       </optional>
       <optional>
         <attribute name="multi_line">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1433,22 +1424,22 @@
       </optional>
       <optional>
         <attribute name="omit_from_log">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="omit_from_output">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="regexp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="repeat">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1473,17 +1464,17 @@
       </optional>
       <optional>
         <attribute name="sound_if_inactive">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="lowercase_wildcard">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="temporary">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1493,7 +1484,7 @@
       </optional>
       <optional>
         <attribute name="one_shot">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1523,47 +1514,47 @@
       </optional>
       <optional>
         <attribute name="bold">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_back_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_bold">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_inverse">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_italic">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_text_colour">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match_underline">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="inverse">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="italic">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1595,7 +1586,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -1608,7 +1599,7 @@
     <element name="alias">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1626,12 +1617,12 @@
       </attribute>
       <optional>
         <attribute name="enabled">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="expand_variables">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1646,12 +1637,12 @@
       </optional>
       <optional>
         <attribute name="omit_from_log">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="regexp">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1661,27 +1652,27 @@
       </optional>
       <optional>
         <attribute name="omit_from_command_history">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="omit_from_output">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="menu">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="ignore_case">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="keep_evaluating">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1691,7 +1682,7 @@
       </optional>
       <optional>
         <attribute name="echo_alias">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1701,27 +1692,27 @@
       </optional>
       <optional>
         <attribute name="temporary">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="one_shot">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="speed_walk">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="set_variable">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="queue">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1743,7 +1734,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -1756,7 +1747,7 @@
     <element name="timer">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1771,12 +1762,12 @@
       </optional>
       <optional>
         <attribute name="enabled">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="at_time">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1791,12 +1782,12 @@
       </optional>
       <optional>
         <attribute name="one_shot">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="active_closed">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1806,12 +1797,12 @@
       </optional>
       <optional>
         <attribute name="omit_from_output">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="omit_from_log">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1851,17 +1842,17 @@
       </optional>
       <optional>
         <attribute name="temporary">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="speed_walk">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="note">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1883,7 +1874,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -1896,7 +1887,7 @@
     <element name="macro">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1928,7 +1919,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -1941,7 +1932,7 @@
     <element name="variable">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -1951,7 +1942,7 @@
       </optional>
       <optional>
         <attribute name="trim">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <data type="string"/>
@@ -1971,7 +1962,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <optional>
@@ -2000,7 +1991,7 @@
         <element name="colour">
           <optional>
             <attribute name="defaults">
-              <ref name="mcBoolean"/>
+              <data type="boolean"/>
             </attribute>
           </optional>
           <attribute name="seq">
@@ -2019,7 +2010,7 @@
         <element name="colour">
           <optional>
             <attribute name="defaults">
-              <ref name="mcBoolean"/>
+              <data type="boolean"/>
             </attribute>
           </optional>
           <attribute name="seq">
@@ -2038,7 +2029,7 @@
         <element name="colour">
           <optional>
             <attribute name="defaults">
-              <ref name="mcBoolean"/>
+              <data type="boolean"/>
             </attribute>
           </optional>
           <attribute name="seq">
@@ -2071,7 +2062,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -2084,7 +2075,7 @@
     <element name="key">
       <optional>
         <attribute name="defaults">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <attribute name="name">
@@ -2109,7 +2100,7 @@
       </optional>
       <optional>
         <attribute name="date_saved">
-          <data type="date"/>
+          <data type="normalizedString"/>
         </attribute>
       </optional>
       <zeroOrMore>
@@ -2126,7 +2117,7 @@
             <element name="style">
               <optional>
                 <attribute name="defaults">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
@@ -2136,17 +2127,17 @@
               </optional>
               <optional>
                 <attribute name="bold">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
                 <attribute name="italic">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
                 <attribute name="underline">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
             </element>
@@ -2159,7 +2150,7 @@
             <element name="style">
               <optional>
                 <attribute name="defaults">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
@@ -2169,17 +2160,17 @@
               </optional>
               <optional>
                 <attribute name="bold">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
                 <attribute name="italic">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
               <optional>
                 <attribute name="underline">
-                  <ref name="mcBoolean"/>
+                  <data type="boolean"/>
                 </attribute>
               </optional>
             </element>
@@ -2237,7 +2228,7 @@
       </optional>
       <optional>
         <attribute name="save_state">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
       <optional>
@@ -2260,7 +2251,7 @@
       </attribute>
       <optional>
         <attribute name="plugin">
-          <ref name="mcBoolean"/>
+          <data type="boolean"/>
         </attribute>
       </optional>
     </element>
