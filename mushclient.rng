@@ -1,0 +1,2268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="muclient"/>
+  </start>
+  <define name="mcBoolean">
+    <choice>
+      <data type="boolean"/>
+      <value>y</value>
+      <value>n</value>
+    </choice>
+  </define>
+  <define name="muclient">
+    <element name="muclient">
+      <interleave>
+        <zeroOrMore>
+          <ref name="include_"/>
+        </zeroOrMore>
+        <interleave>
+          <optional>
+            <ref name="plugin"/>
+          </optional>
+          <optional>
+            <ref name="world"/>
+          </optional>
+          <optional>
+            <ref name="triggers"/>
+          </optional>
+          <optional>
+            <ref name="aliases"/>
+          </optional>
+          <optional>
+            <ref name="timers"/>
+          </optional>
+          <optional>
+            <ref name="macros"/>
+          </optional>
+          <optional>
+            <ref name="variables"/>
+          </optional>
+          <optional>
+            <ref name="colours"/>
+          </optional>
+          <optional>
+            <ref name="keypad"/>
+          </optional>
+          <optional>
+            <ref name="printing"/>
+          </optional>
+        </interleave>
+      </interleave>
+    </element>
+  </define>
+  <define name="world">
+    <element name="world">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="accept_chat_connections">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="alternative_inverse">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="alt_arrow_recalls_partial">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="always_record_command_history">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="arrows_change_history">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="arrow_keys_wrap">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="arrow_recalls_partial">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="autosay_exclude_macros">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="autosay_exclude_non_alpha">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_allow_files">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_allow_snooping">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_copy_to_clipboard_in_html">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_pause">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="keep_pause_at_bottom">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_repeat">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_resize_command_window">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_resize_minimum_lines">
+          <data type="unsignedInt"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_resize_maximum_lines">
+          <data type="unsignedInt"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_wrap_window_width">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="carriage_return_clears_line">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_foreground_colour">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_background_colour">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_max_lines_per_message">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_max_bytes_per_message">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_port">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_sumchecks_to_sender">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confirm_before_replacing_typing">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confirm_on_paste">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confirm_on_send">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="connect_method">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="copy_selection_to_clipboard">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="convert_ga_to_newline">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ctrl_n_goes_to_next_command">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ctrl_p_goes_to_previous_command">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ctrl_z_goes_to_end_of_buffer">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ctrl_backspace_deletes_last_word">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="custom_16_is_default_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_send_to">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_sequence">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_regexp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_expand_variables">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_keep_evaluating">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_trigger_ignore_case">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_send_to">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_sequence">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_regexp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_expand_variables">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_keep_evaluating">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_alias_ignore_case">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="default_timer_send_to">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="detect_pueblo">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="do_not_add_macros_to_command_history">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="do_not_show_outstanding_lines">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="do_not_translate_iac_to_iac_iac">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="disable_compression">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="display_my_input">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="double_click_inserts">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="double_click_sends">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="echo_colour">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="echo_hyperlink_in_output_window">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="edit_script_with_notepad">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_aliases">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_auto_say">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_beeps">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_command_stack">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_scripts">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_spam_prevention">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_speed_walk">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_timers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_triggers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enable_trigger_sounds">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="escape_deletes_input">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="fade_output_buffer_after_seconds">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="fade_output_opacity_percent">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="fade_output_seconds">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="flash_taskbar_icon">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="history_lines">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="hyperlink_adds_to_command_history">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="hyperlink_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ignore_chat_colours">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ignore_mxp_colour_changes">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="indent_paras">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_background_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_font_height">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_font_italic">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_font_weight">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_font_charset">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="input_text_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="keep_commands_on_same_line">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="keypad_enable">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="line_information">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="line_spacing">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_html">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_input">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_in_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_notes">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_output">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_raw">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_script_errors">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="lower_case_tab_completion">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="map_failure_regexp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="max_output_lines">
+          <data type="unsignedInt"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mud_can_change_link_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mud_can_remove_underline">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mud_can_change_options">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mxp_debug_level">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="naws">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="note_text_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="no_echo_off">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_date_from_save_files">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="output_font_height">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="output_font_weight">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="output_font_charset">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_commented_softcode">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_delay">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_delay_per_lines">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_echo">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="play_sounds_in_background">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="pixel_offset">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <attribute name="port">
+        <data type="unsignedShort"/>
+      </attribute>
+      <optional>
+        <attribute name="proxy_port">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="proxy_type">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="re_evaluate_auto_say">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="save_deleted_command">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="save_world_automatically">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_reload_option">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_errors_to_output_window">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_echo">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_double_ff_for_hex_ff">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_file_commented_softcode">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_file_delay">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_file_delay_per_lines">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_keep_alives">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_mxp_afk_response">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="show_bold">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="show_connect_disconnect">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="show_grid_lines_in_list_views">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="show_italic">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="show_underline">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="spam_line_count">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speed_walk_delay">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="spell_check_on_send">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="start_paused">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="tab_completion_lines">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="tab_completion_space">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_input_text_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_notes_text_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_output_text_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_input_back_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_notes_back_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_output_back_colour">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="tool_tip_visible_time">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="tool_tip_start_time">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="translate_backslash_sequences">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="translate_german">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="treeview_triggers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="treeview_aliases">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="treeview_timers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="underline_hyperlinks">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="unpause_on_send">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_custom_link_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_aliases">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_colours">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_input_font">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_macros">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_output_font">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_timers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_default_triggers">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="use_mxp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="utf_8">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="validate_incoming_chat_calls">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="warn_if_scripting_inactive">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="wrap">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="wrap_input">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="wrap_column">
+          <data type="unsignedLong"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="write_world_name_to_log">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_log_file_name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_say_override_prefix">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="auto_say_string">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="beep_sound">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_file_save_directory">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chat_message_prefix">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="command_stack_character">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="editor_window_name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <attribute name="id">
+        <data type="normalizedString"/>
+      </attribute>
+      <optional>
+        <attribute name="input_font_name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_postamble_input">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_postamble_notes">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_postamble_output">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_preamble_input">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_preamble_notes">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="log_line_preamble_output">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mapping_failure">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <attribute name="name">
+        <data type="normalizedString"/>
+      </attribute>
+      <optional>
+        <attribute name="new_activity_sound">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_close_tag">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_error">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_open_tag">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_set_variable">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_start">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_mxp_stop">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_close">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_save">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_connect">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_disconnect">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_get_focus">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_lose_focus">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="on_world_open">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="output_font_name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="password">
+          <data type="base64Binary"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_line_postamble">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="paste_line_preamble">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="player">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="proxy_server">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="proxy_username">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="proxy_password">
+          <data type="base64Binary"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="recall_line_preamble">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_editor">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_editor_argument">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_filename">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_language">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script_prefix">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_to_world_line_postamble">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_to_world_line_preamble">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <attribute name="site">
+        <data type="normalizedString"/>
+      </attribute>
+      <optional>
+        <attribute name="spam_message">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speed_walk_filler">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speed_walk_prefix">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="terminal_identification">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_input">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_notes">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timestamp_output">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="connect_text"/>
+      </optional>
+      <optional>
+        <ref name="filter_aliases"/>
+      </optional>
+      <optional>
+        <ref name="filter_timers"/>
+      </optional>
+      <optional>
+        <ref name="filter_triggers"/>
+      </optional>
+      <optional>
+        <ref name="filter_variables"/>
+      </optional>
+      <optional>
+        <ref name="log_file_postamble"/>
+      </optional>
+      <optional>
+        <ref name="log_file_preamble"/>
+      </optional>
+      <optional>
+        <ref name="paste_postamble"/>
+      </optional>
+      <optional>
+        <ref name="paste_preamble"/>
+      </optional>
+      <optional>
+        <ref name="send_to_world_file_postamble"/>
+      </optional>
+      <optional>
+        <ref name="send_to_world_file_preamble"/>
+      </optional>
+      <optional>
+        <ref name="tab_completion_defaults"/>
+      </optional>
+      <optional>
+        <ref name="notes"/>
+      </optional>
+    </element>
+  </define>
+  <define name="connect_text">
+    <element name="connect_text">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="filter_aliases">
+    <element name="filter_aliases">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="filter_timers">
+    <element name="filter_timers">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="filter_triggers">
+    <element name="filter_triggers">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="filter_variables">
+    <element name="filter_variables">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="log_file_postamble">
+    <element name="log_file_postamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="log_file_preamble">
+    <element name="log_file_preamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="paste_postamble">
+    <element name="paste_postamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="paste_preamble">
+    <element name="paste_preamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="send_to_world_file_postamble">
+    <element name="send_to_world_file_postamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="send_to_world_file_preamble">
+    <element name="send_to_world_file_preamble">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="tab_completion_defaults">
+    <element name="tab_completion_defaults">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="notes">
+    <element name="notes">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="triggers">
+    <element name="triggers">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="trigger"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="trigger">
+    <element name="trigger">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="clipboard_arg">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="custom_colour">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enabled">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="expand_variables">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="group">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="variable">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="pane">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ignore_case">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="keep_evaluating">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="lines_to_match">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="colour_change_type">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="multi_line">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_log">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_output">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="regexp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="repeat">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_to">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="sequence">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="sound">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="sound_if_inactive">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="lowercase_wildcard">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="temporary">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="user">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="one_shot">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="make_bold">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="make_italic">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="make_underline">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="text_colour">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="back_colour">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="bold">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_back_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_bold">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_inverse">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_italic">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_text_colour">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="match_underline">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="inverse">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="italic">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="other_text_colour">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="other_back_colour">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="send"/>
+      </optional>
+    </element>
+  </define>
+  <define name="aliases">
+    <element name="aliases">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="alias"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="alias">
+    <element name="alias">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <attribute name="match">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="enabled">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="expand_variables">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="group">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="variable">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_log">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="regexp">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_to">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_command_history">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_output">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="menu">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="ignore_case">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="keep_evaluating">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="sequence">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="echo_alias">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="user">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="temporary">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="one_shot">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speed_walk">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set_variable">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="queue">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="send"/>
+      </optional>
+    </element>
+  </define>
+  <define name="timers">
+    <element name="timers">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="timer"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="timer">
+    <element name="timer">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="script">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="enabled">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="at_time">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="group">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="variable">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="one_shot">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="active_closed">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="send_to">
+          <data type="unsignedShort"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_output">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="omit_from_log">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="hour">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="minute">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="second">
+          <data type="double"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="offset_hour">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="offset_minute">
+          <data type="unsignedByte"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="offset_second">
+          <data type="double"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="user">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="temporary">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speed_walk">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="note">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="send"/>
+      </optional>
+    </element>
+  </define>
+  <define name="macros">
+    <element name="macros">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="macro"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="macro">
+    <element name="macro">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="send"/>
+      </optional>
+    </element>
+  </define>
+  <define name="variables">
+    <element name="variables">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="variable"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="variable">
+    <element name="variable">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="name">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="trim">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="colours">
+    <element name="colours">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="colours_ansi"/>
+      </optional>
+      <optional>
+        <ref name="colours_custom"/>
+      </optional>
+      <empty/>
+    </element>
+  </define>
+  <define name="colours_ansi">
+    <element name="ansi">
+      <optional>
+        <ref name="colours_ansi_normal"/>
+      </optional>
+      <optional>
+        <ref name="colours_ansi_bold"/>
+      </optional>
+      <empty/>
+    </element>
+  </define>
+  <define name="colours_ansi_normal">
+    <element name="normal">
+      <zeroOrMore>
+        <element name="colour">
+          <optional>
+            <attribute name="defaults">
+              <ref name="mcBoolean"/>
+            </attribute>
+          </optional>
+          <attribute name="seq">
+            <data type="unsignedInt"/>
+          </attribute>
+          <attribute name="rgb">
+            <data type="normalizedString"/>
+          </attribute>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="colours_ansi_bold">
+    <element name="bold">
+      <zeroOrMore>
+        <element name="colour">
+          <optional>
+            <attribute name="defaults">
+              <ref name="mcBoolean"/>
+            </attribute>
+          </optional>
+          <attribute name="seq">
+            <data type="unsignedInt"/>
+          </attribute>
+          <attribute name="rgb">
+            <data type="normalizedString"/>
+          </attribute>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="colours_custom">
+    <element name="custom">
+      <zeroOrMore>
+        <element name="colour">
+          <optional>
+            <attribute name="defaults">
+              <ref name="mcBoolean"/>
+            </attribute>
+          </optional>
+          <attribute name="seq">
+            <data type="unsignedInt"/>
+          </attribute>
+          <attribute name="name">
+            <data type="normalizedString"/>
+          </attribute>
+          <attribute name="text">
+            <data type="normalizedString"/>
+          </attribute>
+          <attribute name="back">
+            <data type="normalizedString"/>
+          </attribute>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="keypad">
+    <element name="keypad">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="key"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="key">
+    <element name="key">
+      <optional>
+        <attribute name="defaults">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <attribute name="name">
+        <data type="normalizedString"/>
+      </attribute>
+      <optional>
+        <ref name="send"/>
+      </optional>
+    </element>
+  </define>
+  <define name="printing">
+    <element name="printing">
+      <optional>
+        <attribute name="world_file_version">
+          <data type="long"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="muclient_version">
+          <data type="token"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_saved">
+          <data type="date"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="printing_ansi"/>
+      </zeroOrMore>
+      <empty/>
+    </element>
+  </define>
+  <define name="printing_ansi">
+    <element name="ansi">
+      <optional>
+        <element name="normal">
+          <zeroOrMore>
+            <element name="style">
+              <optional>
+                <attribute name="defaults">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="seq">
+                  <data type="long"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="bold">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="italic">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="underline">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+            </element>
+          </zeroOrMore>
+        </element>
+      </optional>
+      <optional>
+        <element name="bold">
+          <zeroOrMore>
+            <element name="style">
+              <optional>
+                <attribute name="defaults">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="seq">
+                  <data type="long"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="bold">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="italic">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="underline">
+                  <ref name="mcBoolean"/>
+                </attribute>
+              </optional>
+            </element>
+          </zeroOrMore>
+        </element>
+      </optional>
+    </element>
+  </define>
+  <define name="send">
+    <element name="send">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="plugin">
+    <element name="plugin">
+      <optional>
+        <attribute name="name">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="author">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="language">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="id">
+          <data type="normalizedString"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="purpose">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_written">
+          <data type="dateTime"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="date_modified">
+          <data type="dateTime"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="sequence">
+          <data type="unsignedInt"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="save_state">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="requires">
+          <data type="double"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="version">
+          <data type="double"/>
+        </attribute>
+      </optional>
+      <empty/>
+    </element>
+  </define>
+  <define name="include_">
+    <element name="include">
+      <attribute name="name">
+        <data type="normalizedString"/>
+      </attribute>
+      <optional>
+        <attribute name="plugin">
+          <ref name="mcBoolean"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+</grammar>
