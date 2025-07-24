@@ -22,3 +22,7 @@ If you do want to generate the XSD yourself, and possibly even validate it, foll
 4. If you wish to validate the generated XSD against an existing MUSHclient file, such as a world (`.mcl`) or plugin (`.xml`), run `java -jar /path/to/jing.jar mushclient.xsd /path/to/mcl_or_xml.{mcl|xml}`.
 
 It is worth noting that validation may not succeed. This schema is still in it's alpha stages and may not be complete or correct, so expect validation to fail with errors.
+
+### A note on booleans
+
+Previously, this schema defined a `McBoolean` type to encompass the fact that MUSHclient treats booleans peculiarly. Specifically, when reading and writing XML files, MUSHclient will read and write booleans using `"y"` and `"n"` instead of what is explicitly specified in the XSD specifications for booleans. Although this caused Jing validation to succeed, it also unnecessarily complicated the schema. Thus, this change was reverted. Here, we use the atomic boolean type, even if validation doesn't succeed at the moment, because these values are, in fact, booleans, and allowing a union type places extra complexity on schema generators.
